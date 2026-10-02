@@ -166,23 +166,28 @@
   .hero-aparecer { animation: aparecer 1s var(--ease-luz) both; animation-delay: var(--retraso, 0.6s); }
 }
 
-/* ---------- Paneles difusores: la luz sigue al puntero (solo con ratón) ---------- */
-.difusor { position: relative; isolation: isolate; }
-.difusor::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(28rem circle at var(--luz-x, 50%) var(--luz-y, 0%), var(--luz-color, rgb(243 201 137 / 0.16)), transparent 62%);
-  transition: opacity 0.6s var(--ease-luz);
+/* ---------- Paneles difusores: la luz sigue al puntero (solo con ratón) ----------
+   En la capa de componentes para que las utilidades de Tailwind le ganen: los paneles que se
+   apilan en el celular usan `sticky`, y un `position: relative` fuera de capa lo anulaba (el `top`
+   del apilado terminaba empujando el panel hacia abajo). */
+@layer components {
+  .difusor { position: relative; isolation: isolate; }
+  .difusor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(28rem circle at var(--luz-x, 50%) var(--luz-y, 0%), var(--luz-color, rgb(243 201 137 / 0.16)), transparent 62%);
+    transition: opacity 0.6s var(--ease-luz);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .difusor:hover::before { opacity: 1; }
+  }
+  .difusor-oscuro { --luz-color: rgb(243 201 137 / 0.1); }
 }
-@media (hover: hover) and (pointer: fine) {
-  .difusor:hover::before { opacity: 1; }
-}
-.difusor-oscuro { --luz-color: rgb(243 201 137 / 0.1); }
 
 /* ---------- Botón píldora: respuesta al presionar ---------- */
 .pulsable {
