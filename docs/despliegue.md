@@ -1,50 +1,48 @@
 # Despliegue en Coolify
 
 Igual que el sitio del spa: un contenedor en el VPS de Nodbu (`2.25.185.60`), gestionado por Coolify
-(`https://panel.nodbu.com`). El `Dockerfile` de la raíz construye la imagen (Next.js `standalone`, ≈150 MB).
+(`https://panel.nodbu.com`). El `Dockerfile` de la raíz construye la imagen (Next.js `standalone`, ≈110 MB de RAM en uso).
 
-## Dominio temporal: `clinicaanacure.nodbu.com`
+## Estado actual (2 oct 2026)
 
-Elegido el 2 oct 2026. **No** está bajo el comodín `*.agenda.nodbu.com`, así que necesita su propio registro en el
-DNS de Hostinger (hPanel → Dominios → `nodbu.com` → DNS):
+| | |
+|---|---|
+| URL temporal | `https://clinicaanacure.agenda.nodbu.com` (certificado de Let's Encrypt, *Noindex* activo) |
+| Recurso en Coolify | `anacure-clinica-web`, uuid `9hbyuxihyhe6r6zxv8jcpwes`, proyecto `spa_ana_cure`, entorno `production` |
+| Origen | GitHub público `nodbuco/anacure_clinica`, rama `main`, build pack **Dockerfile**, puerto **3000** |
 
-| Tipo | Nombre | Apunta a | TTL |
-|---|---|---|---|
-| A | `clinicaanacure` | `2.25.185.60` | 300 |
+El subdominio cuelga del comodín `*.agenda.nodbu.com`, que ya apunta al VPS: no hubo que tocar el DNS de Hostinger.
 
-Comprobar con `dig +short clinicaanacure.nodbu.com` antes de desplegar: Let's Encrypt solo emite el certificado
-cuando el nombre ya resuelve.
+Variables cargadas (en Coolify 4 nacen como *build* y *runtime* a la vez; las `NEXT_PUBLIC_*` se incrustan en el build):
 
-## Crear el recurso
+| Variable | Valor |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://clinicaanacure.agenda.nodbu.com` |
+| `NEXT_PUBLIC_SPA_URL` | `https://anacure.agenda.nodbu.com` (luego `https://anacure.co`) |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | `clinicaanacure.agenda.nodbu.com` |
+| `NEXT_PUBLIC_PLAUSIBLE_HOST` | sin cargar hasta activar Plausible |
 
-En el proyecto del cliente (`spa_ana_cure`, entorno `production`), junto al sitio del spa:
+## Publicar un cambio
 
-1. **+ New Resource** → *Public Repository*: `https://github.com/nodbuco/anacure_clinica`, rama `main`.
-2. **Build Pack: Dockerfile.** Puerto expuesto: `3000`.
-3. Dominio `https://clinicaanacure.nodbu.com`, puerto `3000`. Borrar el dominio automático y cualquier `www.` que
-   Coolify añada solo. Activar *Noindex* mientras sea temporal.
-4. Variables (en Coolify 4 nacen como *build* y *runtime* a la vez; las `NEXT_PUBLIC_*` se incrustan en el build):
+Un recurso *Public Repository* no tiene webhook: un push a `main` **no** despliega solo.
 
-   | Variable | Valor |
-   |---|---|
-   | `NEXT_PUBLIC_SITE_URL` | `https://clinicaanacure.nodbu.com` |
-   | `NEXT_PUBLIC_SPA_URL` | `https://anacure.agenda.nodbu.com` (luego `https://anacure.co`) |
-   | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | `clinicaanacure.nodbu.com` |
-   | `NEXT_PUBLIC_PLAUSIBLE_HOST` | vacío hasta activar Plausible |
+1. Push a `main`.
+2. En Coolify, el recurso → **Redeploy**. Desde la terminal del servidor equivale a:
 
-5. *Health check*: `/robots.txt` (el `Dockerfile` trae uno equivalente). **Deploy.**
+   ```bash
+   docker exec coolify php artisan tinker --execute='$a = App\Models\Application::where("uuid","9hbyuxihyhe6r6zxv8jcpwes")->first(); $u = new_public_id(); queue_application_deployment(application: $a, deployment_uuid: $u, force_rebuild: false, is_api: true); echo $u;'
+   ```
 
-Un recurso *Public Repository* no tiene webhook: cada push necesita *Redeploy* (o la GitHub App de Coolify).
+   El estado queda en la tabla `application_deployment_queues` de `coolify-db` (`in_progress` → `finished`). Tarda unos 2 a 3 minutos.
+3. Calentar las fotos: cada despliegue empieza con la caché vacía y la primera visita a cada foto esperaría su
+   conversión a AVIF.
 
-## Después de cada despliegue
-
-```bash
-npm run calentar -- https://<dominio>
-```
-
-Pide cada tamaño de cada foto para que ninguna visitante espere la primera conversión a AVIF.
+   ```bash
+   npm run calentar -- https://clinicaanacure.agenda.nodbu.com
+   ```
 
 ## Al pasar al dominio definitivo
 
-Apuntar el DNS (`A @ → 2.25.185.60`), añadir el dominio en Coolify, cambiar las tres variables del dominio,
-quitar el *Noindex* y redesplegar.
+Apuntar el DNS del dominio al VPS (`A → 2.25.185.60`), añadirlo en el recurso (puerto `3000`, borrar el `www.` que
+Coolify agrega solo si el DNS no lo cubre), cambiar las tres variables del dominio, quitar el *Noindex* y
+redesplegar. Dejar el subdominio temporal unos días y luego borrarlo.
