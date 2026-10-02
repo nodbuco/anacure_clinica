@@ -1,0 +1,462 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T01:00:00-05:00",
+  "title": "Design System: Clínica Estética Ana Cure",
+  "extensions": {
+    "colorMeta": {
+      "noche": {
+        "role": "neutral",
+        "displayName": "Noche grafito",
+        "canonical": "oklch(18.8% 0.002 17.3)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252424",
+          "#403F3F",
+          "#5E5D5D",
+          "#818080",
+          "#A5A4A4",
+          "#CBCACA",
+          "#EFEEEE"
+        ]
+      },
+      "grafito": {
+        "role": "neutral",
+        "displayName": "Grafito",
+        "canonical": "oklch(22.3% 0.002 17.3)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252424",
+          "#403F3F",
+          "#5E5D5D",
+          "#818080",
+          "#A5A4A4",
+          "#CBCACA",
+          "#EFEEEE"
+        ]
+      },
+      "grafito-elevado": {
+        "role": "neutral",
+        "displayName": "Grafito elevado",
+        "canonical": "oklch(26.2% 0.003 17.3)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#827F7F",
+          "#A6A4A4",
+          "#CCCACA",
+          "#F0EEEE"
+        ]
+      },
+      "humo": {
+        "role": "neutral",
+        "displayName": "Humo",
+        "canonical": "oklch(34.3% 0.003 17.3)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#827F7F",
+          "#A6A4A4",
+          "#CCCACA",
+          "#F0EEEE"
+        ]
+      },
+      "niebla": {
+        "role": "neutral",
+        "displayName": "Niebla",
+        "canonical": "oklch(70.2% 0.003 17.2)",
+        "tonalRamp": [
+          "#0D0B0B",
+          "#262323",
+          "#413F3F",
+          "#5F5D5D",
+          "#827F7F",
+          "#A7A4A4",
+          "#CDCACA",
+          "#F1EDED"
+        ]
+      },
+      "perla": {
+        "role": "neutral",
+        "displayName": "Perla difusor",
+        "canonical": "oklch(96.7% 0.001 106.4)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242423",
+          "#40403F",
+          "#5E5E5D",
+          "#80807F",
+          "#A4A4A4",
+          "#CACAC9",
+          "#EEEEED"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#404040",
+          "#5D5D5D",
+          "#808080",
+          "#A4A4A4",
+          "#CACACA",
+          "#EEEEEE"
+        ]
+      },
+      "linea": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "oklch(91.3% 0.002 67.8)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#252423",
+          "#403F3F",
+          "#5E5D5C",
+          "#81807F",
+          "#A5A4A3",
+          "#CBCAC9",
+          "#EFEEED"
+        ]
+      },
+      "carbon": {
+        "role": "neutral",
+        "displayName": "Gris carbón del kit",
+        "canonical": "oklch(47.7% 0.003 17.2)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#827F7F",
+          "#A6A4A4",
+          "#CCCACA",
+          "#F0EEEE"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(21.5% 0.002 17.3)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252424",
+          "#403F3F",
+          "#5E5D5D",
+          "#818080",
+          "#A5A4A4",
+          "#CBCACA",
+          "#EFEEEE"
+        ]
+      },
+      "difusor": {
+        "role": "neutral",
+        "displayName": "Difusor encendido",
+        "canonical": "oklch(96.5% 0.010 87.5)",
+        "tonalRamp": [
+          "#0D0B07",
+          "#26241F",
+          "#423F3A",
+          "#605D57",
+          "#83807A",
+          "#A7A49E",
+          "#CDCAC3",
+          "#F1EEE7"
+        ]
+      },
+      "oro-claro": {
+        "role": "primary",
+        "displayName": "Oro claro",
+        "canonical": "oklch(85.8% 0.094 77.5)",
+        "tonalRamp": [
+          "#1F0100",
+          "#3C1A00",
+          "#5B3700",
+          "#7B560F",
+          "#9F7939",
+          "#C59D5E",
+          "#EDC383",
+          "#FFE7A6"
+        ]
+      },
+      "oro": {
+        "role": "primary",
+        "displayName": "Oro del logo",
+        "canonical": "oklch(76.1% 0.104 75.2)",
+        "tonalRamp": [
+          "#210000",
+          "#3F1700",
+          "#5E3500",
+          "#7F5300",
+          "#A47630",
+          "#CA9B56",
+          "#F2C17C",
+          "#FFE59F"
+        ]
+      },
+      "oro-oscuro": {
+        "role": "primary",
+        "displayName": "Oro oscuro",
+        "canonical": "oklch(64.1% 0.110 70.9)",
+        "tonalRamp": [
+          "#240000",
+          "#431400",
+          "#623200",
+          "#835100",
+          "#A9742B",
+          "#D09852",
+          "#F8BE78",
+          "#FFE29C"
+        ]
+      },
+      "oro-profundo": {
+        "role": "primary",
+        "displayName": "Oro profundo",
+        "canonical": "oklch(57.9% 0.116 63.8)",
+        "tonalRamp": [
+          "#270000",
+          "#470D00",
+          "#682D00",
+          "#8A4C00",
+          "#B06F2A",
+          "#D79451",
+          "#FFBA77",
+          "#FFDE9B"
+        ]
+      },
+      "oro-texto": {
+        "role": "primary",
+        "displayName": "Oro de texto",
+        "canonical": "oklch(49.9% 0.101 64.2)",
+        "tonalRamp": [
+          "#240000",
+          "#431300",
+          "#633100",
+          "#845011",
+          "#AA723A",
+          "#D1975F",
+          "#F9BD84",
+          "#FFE1A7"
+        ]
+      },
+      "alerta": {
+        "role": "error",
+        "displayName": "Alerta",
+        "canonical": "oklch(47.4% 0.155 30.1)",
+        "tonalRamp": [
+          "#330000",
+          "#5A0000",
+          "#7E0000",
+          "#A32E21",
+          "#CC5544",
+          "#F67A68",
+          "#FFA18D",
+          "#FFC5AF"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "titan": {
+        "displayName": "Titán",
+        "purpose": "Hero, cierre y nombre de cada procedimiento."
+      },
+      "titulo": {
+        "displayName": "Título",
+        "purpose": "Un titular por sección, terminado en punto."
+      },
+      "manifiesto": {
+        "displayName": "Manifiesto",
+        "purpose": "La frase cuyas palabras se encienden con el scroll."
+      },
+      "subtitulo": {
+        "displayName": "Subtítulo",
+        "purpose": "Títulos de panel y de bloque."
+      },
+      "tarjeta": {
+        "displayName": "Tarjeta",
+        "purpose": "Nombres en listas, pasos y escenas."
+      },
+      "entrada": {
+        "displayName": "Entrada",
+        "purpose": "La línea que acompaña a cada título."
+      },
+      "cuerpo": {
+        "displayName": "Cuerpo",
+        "purpose": "Texto corrido, máximo 38 rem."
+      },
+      "etiqueta": {
+        "displayName": "Etiqueta",
+        "purpose": "Roles, detalles de caso y rótulos de campo."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-luz",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Curva de casi todo: encender, enfocar, aparecer."
+      },
+      {
+        "name": "ease-escena",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Cambios en pantalla (texto de la escena que se despliega)."
+      },
+      {
+        "name": "encender",
+        "value": "filter blur(10px) brightness(0.55) + translate 18px → none, animation-timeline: view(), entry 0–70%",
+        "purpose": "Paneles e imágenes que se iluminan al entrar; sin transparencia."
+      },
+      {
+        "name": "tubo",
+        "value": "0.9s, opacidad 0 → .75 → .15 → .9 → .45 → 0",
+        "purpose": "Parpadeo del tubo al encender una placa de resultado."
+      },
+      {
+        "name": "hero-recoger",
+        "value": "clip-path inset(0 round 0) → inset(9% 4.5% round 36px), scrub ligado al scroll",
+        "purpose": "El video del quirófano se recoge en un panel curvo."
+      },
+      {
+        "name": "pulsar",
+        "value": "scale(0.97), 160ms ease-luz",
+        "purpose": "Respuesta al presionar cualquier botón."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "pantalla-escena",
+        "value": "1024px (escena fija de la clínica)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón de oro",
+      "kind": "button",
+      "refersTo": "boton-oro",
+      "description": "El llamado principal: agenda tu valoración.",
+      "html": "<a class=\"ds-boton-oro\" href=\"#\">Agenda tu valoración</a>",
+      "css": ".ds-boton-oro{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:9999px;font:500 1rem/1 Inter,system-ui,sans-serif;letter-spacing:-0.01em;color:#141313;text-decoration:none;background-image:linear-gradient(135deg,#F3C989 0%,#D8A863 45%,#B68039 100%);background-size:160% 100%;background-position:0% 50%;transition:background-position 600ms cubic-bezier(0.22,1,0.36,1),transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-boton-oro:hover{background-position:100% 50%}.ds-boton-oro:active{transform:scale(0.97)}.ds-boton-oro:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
+    },
+    {
+      "name": "Botón de contorno claro",
+      "kind": "button",
+      "refersTo": "boton-contorno-claro",
+      "description": "Acción secundaria sobre grafito (WhatsApp, volver al inicio).",
+      "html": "<div style=\"background:#141313;padding:24px\"><a class=\"ds-boton-contorno\" href=\"#\">Escríbenos</a></div>",
+      "css": ".ds-boton-contorno{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:9999px;border:1px solid rgb(244 244 243/.3);color:#F4F4F3;font:500 1rem/1 Inter,system-ui,sans-serif;text-decoration:none;transition:border-color 200ms ease,background-color 200ms ease,transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-boton-contorno:hover{border-color:rgb(244 244 243/.7);background:rgb(244 244 243/.05)}.ds-boton-contorno:active{transform:scale(0.97)}"
+    },
+    {
+      "name": "Enlace con chevron",
+      "kind": "custom",
+      "refersTo": "enlace-flecha",
+      "description": "Acción secundaria por defecto, en oro.",
+      "html": "<a class=\"ds-enlace\" href=\"#\">Ver procedimientos <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.5 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-enlace{display:inline-flex;align-items:center;gap:4px;color:#8A5519;font:500 1.0625rem/1.2 Inter,system-ui,sans-serif;text-decoration:none}.ds-enlace svg{transition:transform 300ms cubic-bezier(0.22,1,0.36,1)}.ds-enlace:hover{text-decoration:underline;text-underline-offset:.2em}.ds-enlace:hover svg{transform:translateX(2px)}"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "campo",
+      "description": "Campos del formulario de valoración.",
+      "html": "<label class=\"ds-rotulo\">Nombre y apellido<input class=\"ds-campo\" placeholder=\"María Fernanda Pérez\"></label>",
+      "css": ".ds-rotulo{display:block;font:500 .9rem/1.3 Inter,system-ui,sans-serif;color:#1A1919}.ds-campo{display:block;margin-top:8px;width:100%;min-height:52px;padding:0 16px;border-radius:16px;border:1px solid #E3E2E1;background:#fff;font:400 1.0625rem Inter,system-ui,sans-serif;color:#1A1919;caret-color:#A96922}.ds-campo::placeholder{color:rgb(94 92 92/.6)}.ds-campo:focus{outline:none;border-color:#1A1919}.ds-campo:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
+    },
+    {
+      "name": "Panel difusor",
+      "kind": "card",
+      "refersTo": "panel-difusor",
+      "description": "Panel blanco sobre perla con filas separadas por líneas; la luz sigue al puntero.",
+      "html": "<div style=\"background:#F4F4F3;padding:24px\"><article class=\"ds-difusor\"><h3>Busto</h3><a href=\"#\"><span>Aumento mamario</span><small>Implantes para ganar volumen y proporción.</small></a><a href=\"#\"><span>Pexia mamaria sin implantes</span><small>Eleva y da firmeza con tu propio tejido.</small></a></article></div>",
+      "css": ".ds-difusor{background:#fff;border-radius:36px;padding:40px;font-family:Inter,system-ui,sans-serif}.ds-difusor h3{margin:0 0 20px;font-weight:300;font-size:2rem;letter-spacing:-0.022em;color:#1A1919}.ds-difusor a{display:block;border-top:1px solid #E3E2E1;padding:20px 0;text-decoration:none}.ds-difusor span{display:block;font-size:1.2rem;color:#1A1919;letter-spacing:-0.015em}.ds-difusor small{display:block;margin-top:4px;font-size:.95rem;color:#5E5C5C}.ds-difusor a:hover span{text-decoration:underline}"
+    },
+    {
+      "name": "Placa de resultado",
+      "kind": "custom",
+      "refersTo": "placa",
+      "description": "Resultado apagado por defecto; se enciende con un interruptor de dos estados.",
+      "html": "<figure class=\"ds-placa\"><div class=\"ds-placa-luz\"><span>Enciéndela para verla</span></div><figcaption><div><p>Alectomía</p><small>Antes y después · Dr. Alan Rodríguez</small></div><button aria-pressed=\"false\">Encender</button></figcaption></figure>",
+      "css": ".ds-placa{margin:0;max-width:360px;border-radius:28px;overflow:hidden;background:#1C1B1B;box-shadow:0 0 0 1px rgb(244 244 243/.1);font-family:Inter,system-ui,sans-serif}.ds-placa-luz{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#3a3534,#141313);color:rgb(244 244 243/.75);font-size:.85rem}.ds-placa figcaption{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px}.ds-placa p{margin:0;color:#F4F4F3}.ds-placa small{color:#A19E9E;font-size:.85rem}.ds-placa button{min-height:40px;padding:0 16px;border:0;border-radius:9999px;font:500 .85rem Inter,system-ui,sans-serif;color:#141313;background:linear-gradient(135deg,#F3C989,#D8A863 45%,#B68039);transition:transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-placa button:active{transform:scale(0.97)}.ds-placa button:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
+    },
+    {
+      "name": "Barra local",
+      "kind": "nav",
+      "refersTo": "barra-local",
+      "description": "Navegación fija de 56 px que cambia de tono con la sección de debajo.",
+      "html": "<nav class=\"ds-barra\"><strong>Clínica Estética Ana Cure</strong><span><a href=\"#\">Procedimientos</a><a href=\"#\">La clínica</a><a href=\"#\">Resultados</a></span><a class=\"ds-barra-cta\" href=\"#\">Agenda tu valoración</a></nav>",
+      "css": ".ds-barra{display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 24px;background:rgb(20 19 19/.72);backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgb(255 255 255/.08);font-family:Inter,system-ui,sans-serif}.ds-barra strong{font-weight:400;color:#F4F4F3;font-size:.9rem}.ds-barra span{display:flex;gap:28px}.ds-barra span a{color:rgb(244 244 243/.75);font-size:.82rem;text-decoration:none;transition:color 200ms}.ds-barra span a:hover{color:#F4F4F3}.ds-barra-cta{min-height:36px;display:inline-flex;align-items:center;padding:0 16px;border-radius:9999px;font-size:.82rem;font-weight:500;color:#141313;text-decoration:none;background:linear-gradient(135deg,#F3C989,#D8A863 45%,#B68039)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La caja de luz",
+    "overview": "El sitio funciona como el negatoscopio donde el cirujano lee cada caso: todo aparece iluminado desde atrás. La gramática es la de una página de producto de Apple (titulares grandes, mosaicos de esquinas suaves, escenas ligadas al scroll), pero el producto es una clínica y la luz es su argumento: el quirófano real abre la página en video, los paneles se «encienden» al entrar y los resultados llegan apagados hasta que la persona decide verlos.\n\nEs un sistema de tres tintas: grafito cálido, oro del logo y blanco perla. El oro es la única luz; nunca decora un fondo entero. La densidad es baja y el ritmo alterna secciones oscuras (escenas, resultados, cierre) con secciones claras (procedimientos, proceso, recuperación, equipo), cada una con una sola idea y pocas palabras.",
+    "keyCharacteristics": [
+      "Video del quirófano real, graduado en grafito y oro, que se recoge en un panel curvo al bajar.",
+      "Paneles de radio amplio que se superponen; nunca sombras.",
+      "Inter Light grande y apretada, con el corte de tamaño óptico de titular.",
+      "Movimiento como luz: enfocar, encender, dibujar la línea dorada.",
+      "Material propio, sin fotos de stock: quirófano, equipo y resultados de la clínica."
+    ],
+    "rules": [
+      {
+        "name": "The Three Inks Rule",
+        "body": "Grafito, oro y perla, nada más; también el botón de WhatsApp va en grafito y oro, nunca en verde. La única excepción es el rojo de alerta en los errores.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Light Rule",
+        "body": "El oro marca lo que está encendido o es accionable: botón principal, línea alcanzada, enlaces. Nunca llena una sección ni un panel.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Ningún título lleva rótulo encima. El título habla solo; el dato secundario va debajo (rol, detalle) en oro de texto.",
+        "section": "typography"
+      },
+      {
+        "name": "The Period Rule",
+        "body": "Los títulos de sección son frases cortas y terminan en punto.",
+        "section": "typography"
+      },
+      {
+        "name": "The Overlap Not Shadow Rule",
+        "body": "Si algo debe verse encima, se superpone; nunca se le pone sombra.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Light On Entry Rule",
+        "body": "Los paneles e imágenes se encienden al entrar (enfoque y brillo, sin transparencia); los titulares y el texto ya están ahí.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar material propio de la clínica (quirófano, equipo, sedes, resultados) y registrar su origen en la imagen.",
+      "Do mantener los resultados apagados por defecto y cargar la foto solo al encenderla.",
+      "Do dar a toda escena de scroll una versión quieta con prefers-reduced-motion.",
+      "Do verificar 4,5:1 en texto pequeño y 3:1 en titulares, también en los estados animados."
+    ],
+    "donts": [
+      "Don't usar sombras, vidrio decorativo ni texto en degradado.",
+      "Don't poner rótulos o «eyebrows» sobre los títulos.",
+      "Don't introducir un cuarto color (ni el verde de WhatsApp ni el púrpura del spa).",
+      "Don't usar fotos de stock ni prometer resultados."
+    ]
+  }
+}
