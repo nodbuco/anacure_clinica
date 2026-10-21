@@ -25,25 +25,21 @@ export interface Paso {
 function FotoMontada({ foto, className }: { foto: Foto; className?: string }) {
   return (
     <figure className={cn("relative", className)}>
-      <div className="descubrir relative aspect-[4/3] overflow-hidden bg-algodon-2">
-        <Image
-          src={foto.src}
-          alt={foto.alt}
-          fill
-          sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, 90vw"
-          placeholder={foto.previa ? "blur" : "empty"}
-          blurDataURL={foto.previa}
-          className="object-cover"
-        />
-        {/* Esquineros de álbum: cuatro piezas de papel que sujetan la foto, cada una con su sombra */}
-        <span aria-hidden="true" className="esquineros absolute inset-0">
-          <span className="esquinero left-0 top-0" />
-          <span className="esquinero right-0 top-0 rotate-90" />
-          <span className="esquinero bottom-0 right-0 rotate-180" />
-          <span className="esquinero bottom-0 left-0 -rotate-90" />
-        </span>
+      {/* La copia impresa: borde blanco y sombra; adentro, la foto se descubre al entrar */}
+      <div className="copia">
+        <div className="descubrir relative aspect-[4/3] overflow-hidden bg-algodon-2">
+          <Image
+            src={foto.src}
+            alt={foto.alt}
+            fill
+            sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, 90vw"
+            placeholder={foto.previa ? "blur" : "empty"}
+            blurDataURL={foto.previa}
+            className="object-cover"
+          />
+        </div>
       </div>
-      <figcaption className="rotulo mt-2.5 text-carbon">{foto.pie}</figcaption>
+      <figcaption className="rotulo mt-3 text-carbon">{foto.pie}</figcaption>
     </figure>
   );
 }
@@ -103,7 +99,7 @@ export function Recorrido({ pasos }: { pasos: Paso[] }) {
                     i > 0 && "border-t border-linea",
                   )}
                 >
-                  <div className="flex items-center gap-4 lg:self-start lg:pt-1.5">
+                  <div className="flex items-center gap-4">
                     <span className="perforacion" aria-hidden="true" />
                     <span className="tabular text-subtitulo font-light text-carbon">{i + 1}</span>
                   </div>

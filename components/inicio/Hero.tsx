@@ -10,9 +10,9 @@ import { CON_MOVIMIENTO, gsap, useGSAP } from "@/lib/gsap";
 
 type Fuente = "movil" | "escritorio";
 
-const VIDEO: Record<Fuente, { av1: string; h264: string }> = {
-  movil: { av1: "/media/hero/quirofano-movil-av1.mp4", h264: "/media/hero/quirofano-movil.mp4" },
-  escritorio: { av1: "/media/hero/quirofano-1280-av1.mp4", h264: "/media/hero/quirofano-1280.mp4" },
+const VIDEO: Record<Fuente, { av1: string; h264: string; poster: string }> = {
+  movil: { av1: "/media/hero/quirofano-movil-av1.mp4", h264: "/media/hero/quirofano-movil.mp4", poster: "/media/hero/quirofano-poster-movil.jpg" },
+  escritorio: { av1: "/media/hero/quirofano-1280-av1.mp4", h264: "/media/hero/quirofano-1280.mp4", poster: "/media/hero/quirofano-poster.jpg" },
 };
 
 /** El bucle abre y cierra con un fundido; el póster es el cuadro de este segundo. */
@@ -43,7 +43,6 @@ export function Hero({ sello }: { sello: { semana: string; dia: string; mes: str
   const raiz = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const fuente = useSyncExternalStore(suscribirFuente, fuenteActual, () => null);
-  const [listo, setListo] = useState(false);
   const [pausado, setPausado] = useState(false);
   const pausadoPorUsuario = useRef(false);
 
@@ -117,14 +116,15 @@ export function Hero({ sello }: { sello: { semana: string; dia: string; mes: str
                 playsInline
                 autoPlay
                 preload="auto"
+                poster={VIDEO[fuente].poster}
                 aria-hidden="true"
                 tabIndex={-1}
                 onLoadedMetadata={(e) => {
                   e.currentTarget.currentTime = INICIO_VIDEO;
                 }}
-                onPlaying={() => setListo(true)}
-                data-listo={listo || undefined}
-                className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-1000 ease-papel data-[listo]:opacity-100"
+                // Sin fundido: el póster es el mismo cuadro con el que arranca el video, así que el paso es
+                // invisible y la primera pintura grande de la página sigue siendo la del póster (LCP temprano).
+                className="absolute inset-0 size-full object-cover"
               >
                 <source src={VIDEO[fuente].av1} type='video/mp4; codecs="av01.0.05M.08"' />
                 <source src={VIDEO[fuente].h264} type="video/mp4" />

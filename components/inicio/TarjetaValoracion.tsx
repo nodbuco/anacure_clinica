@@ -6,7 +6,7 @@ interface Props {
 }
 
 /**
- * La tarjeta de valoración que entrega la clínica: modalidad y sedes en el cuerpo.
+ * La tarjeta de valoración que entrega la clínica: modalidad y cómo te respondemos en el cuerpo.
  * El talón perforado lleva la próxima jornada estampada con el sello de fecha, a escala de cartel.
  * Mientras no hay fecha (data/jornada.ts), el talón no anuncia un no-dato: lleva el isotipo del kit.
  */
@@ -25,8 +25,8 @@ export function TarjetaValoracion({ sello, className }: Props) {
               <dd className="mt-1 text-[1.02rem] leading-snug">Presencial o virtual</dd>
             </div>
             <div className="pt-3">
-              <dt className="rotulo text-carbon">Sedes</dt>
-              <dd className="mt-1 text-[1.02rem] leading-snug">Aguachica · El Banco</dd>
+              <dt className="rotulo text-carbon">Respuesta</dt>
+              <dd className="mt-1 text-[1.02rem] leading-snug">Por WhatsApp</dd>
             </div>
           </dl>
         </div>

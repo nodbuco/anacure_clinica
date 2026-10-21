@@ -8,7 +8,7 @@ import { fechaJornada } from "@/data/jornada";
 export const metadata: Metadata = {
   title: "Agenda tu valoración gratuita",
   description:
-    "Pide tu valoración gratuita en la Clínica Estética Ana Cure: presencial en Aguachica o El Banco, o virtual. Elige el procedimiento y te respondemos por WhatsApp.",
+    "Pide tu valoración gratuita en la Clínica Estética Ana Cure: presencial en Aguachica o virtual. Elige el procedimiento y te respondemos por WhatsApp.",
   alternates: { canonical: "/valoracion" },
 };
 

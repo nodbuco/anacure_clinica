@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaValoracion } from "@/components/cta/CtaValoracion";
+import { Lamina } from "@/components/procedimientos/Lamina";
 import { VistaProcedimiento } from "@/components/procedimientos/VistaProcedimiento";
 import { Resultados } from "@/components/resultados/Resultados";
 import { Enlace } from "@/components/ui/Boton";
@@ -96,7 +97,10 @@ export default async function ProcedimientoPage(props: PageProps<"/procedimiento
               </div>
 
               <div className="border-t border-dashed border-tinta/25 bg-algodon-2 px-5 py-8 sm:px-8 lg:linea-corte lg:rounded-r-troquel lg:border-t-0 lg:px-10 lg:py-12">
-                <h2 className="rotulo text-oro-texto">Es para ti si…</h2>
+                <div className="marco-lamina relative mx-auto aspect-square w-full max-w-[17rem]">
+                  <Lamina slug={p.slug} className="absolute inset-0 p-[7%]" />
+                </div>
+                <h2 className="rotulo mt-8 text-oro-texto">Es para ti si…</h2>
                 <ul className="mt-4 space-y-3">
                   {p.paraQuien.map((x) => (
                     <li key={x} className="flex gap-3 leading-snug">
@@ -135,8 +139,10 @@ export default async function ProcedimientoPage(props: PageProps<"/procedimiento
         <Contenedor className="grid gap-10 border-t border-blanco/15 pt-seccion lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <h2 className="text-titulo font-light">Empieza por tu valoración</h2>
-            <p className="mt-4 max-w-[26rem] text-entrada text-perla">Presencial en Aguachica o El Banco, o virtual desde tu casa.</p>
-            <CtaValoracion ubicacion="procedimiento-cierre" procedimiento={p.slug} className="mt-8 w-full sm:w-auto" />
+            <p className="mt-4 max-w-[26rem] text-entrada text-perla">Presencial en Aguachica o virtual, desde tu casa.</p>
+            <div data-cta-portada className="mt-8">
+              <CtaValoracion ubicacion="procedimiento-cierre" procedimiento={p.slug} className="w-full sm:w-auto" />
+            </div>
           </div>
           <div className="lg:col-span-7">
             <h2 id="otros-titulo" className="rotulo text-perla">

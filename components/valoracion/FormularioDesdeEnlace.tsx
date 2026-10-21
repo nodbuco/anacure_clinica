@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { FormularioValoracion } from "@/components/valoracion/FormularioValoracion";
+import { FormularioValoracion, SIN_DEFINIR } from "@/components/valoracion/FormularioValoracion";
 import { procedimientoPorSlug } from "@/data/procedimientos";
 
 /**
@@ -11,6 +11,6 @@ import { procedimientoPorSlug } from "@/data/procedimientos";
  */
 export function FormularioDesdeEnlace({ fecha }: { fecha: string | null }) {
   const pedido = useSearchParams().get("procedimiento");
-  const inicial = pedido && procedimientoPorSlug(pedido) ? pedido : "";
+  const inicial = pedido && (pedido === SIN_DEFINIR || procedimientoPorSlug(pedido)) ? pedido : "";
   return <FormularioValoracion key={inicial} fecha={fecha} procedimientoInicial={inicial} />;
 }

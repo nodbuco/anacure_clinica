@@ -16,14 +16,17 @@ export function Equipo() {
         </h2>
         <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-12 lg:gap-8">
           <figure className="lg:col-span-4">
-            <div className="descubrir relative aspect-[4/5] overflow-hidden bg-carbon-hondo sm:aspect-[4/3] lg:aspect-[4/5]">
-              <Foto
-                src="/media/equipo/alan-rodriguez-ana-cure.jpg"
-                alt="El Dr. Alan Rodríguez, cirujano plástico, junto a la Dra. Ana Cure"
-                fill
-                sizes="(min-width: 64rem) 25rem, 100vw"
-                className="object-cover object-[50%_22%]"
-              />
+            {/* Copia impresa, como las fotos de la tarjeta de controles */}
+            <div className="copia">
+              <div className="descubrir relative aspect-[4/5] overflow-hidden bg-carbon-hondo sm:aspect-[4/3] lg:aspect-[4/5]">
+                <Foto
+                  src="/media/equipo/alan-rodriguez-ana-cure.jpg"
+                  alt="El Dr. Alan Rodríguez, cirujano plástico, junto a la Dra. Ana Cure"
+                  fill
+                  sizes="(min-width: 64rem) 25rem, 100vw"
+                  className="object-cover object-[50%_22%]"
+                />
+              </div>
             </div>
             <figcaption className="rotulo mt-3 text-perla">Dr. Alan Rodríguez y Dra. Ana Cure</figcaption>
           </figure>

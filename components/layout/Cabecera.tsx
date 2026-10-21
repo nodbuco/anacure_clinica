@@ -13,9 +13,9 @@ import { SITE } from "@/data/site";
 
 /**
  * Barra fija, como el membrete de la papelería. Sobre el video de la portada va transparente;
- * al bajar, y en las demás páginas, es cartulina carbón. Su botón se guarda mientras se ve el
- * llamado principal de la página (data-cta-portada) y en la propia página de valoración:
- * en pantalla hay un solo llamado a la vez.
+ * al bajar, y en las demás páginas, es cartulina carbón. Su botón se guarda mientras se ve algún
+ * llamado de la página (data-cta-portada) y en la propia página de valoración: en pantalla hay
+ * un solo llamado a la vez.
  */
 export function Cabecera() {
   const ruta = usePathname();
@@ -36,11 +36,22 @@ export function Cabecera() {
     alDesplazar();
     window.addEventListener("scroll", alDesplazar, { passive: true });
 
-    const cta = document.querySelector("[data-cta-portada]");
-    const observador = cta ? new IntersectionObserver(([e]) => setCtaPaginaVisible(e.isIntersecting), { rootMargin: "-56px 0px 0px 0px" }) : null;
-    // Sin llamado principal en la página, el de la cabecera queda a la vista.
-    const sinCta = cta ? 0 : requestAnimationFrame(() => setCtaPaginaVisible(false));
-    if (cta) observador?.observe(cta);
+    // Todos los llamados de la página (el de arriba y el del cierre): mientras se vea alguno, la
+    // cabecera guarda el suyo.
+    const ctas = [...document.querySelectorAll("[data-cta-portada]")];
+    const visibles = new Set<Element>();
+    const observador = ctas.length
+      ? new IntersectionObserver(
+          (entradas) => {
+            entradas.forEach((e) => (e.isIntersecting ? visibles.add(e.target) : visibles.delete(e.target)));
+            setCtaPaginaVisible(visibles.size > 0);
+          },
+          { rootMargin: "-56px 0px 0px 0px" },
+        )
+      : null;
+    // Sin llamado en la página, el de la cabecera queda a la vista.
+    const sinCta = ctas.length ? 0 : requestAnimationFrame(() => setCtaPaginaVisible(false));
+    ctas.forEach((c) => observador?.observe(c));
     return () => {
       cancelAnimationFrame(pendiente);
       cancelAnimationFrame(sinCta);

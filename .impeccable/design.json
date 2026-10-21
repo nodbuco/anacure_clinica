@@ -1,462 +1,571 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T01:00:00-05:00",
+  "generatedAt": "2026-10-21T18:53:29+00:00",
   "title": "Design System: Clínica Estética Ana Cure",
   "extensions": {
     "colorMeta": {
+      "carbon": {
+        "role": "neutral",
+        "displayName": "Cartulina carbón",
+        "canonical": "#5E5C5C",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#7F7D7D",
+          "#A09E9E",
+          "#C6C3C3",
+          "#F0EEEE"
+        ]
+      },
+      "carbon-hondo": {
+        "role": "neutral",
+        "displayName": "Cartulina honda",
+        "canonical": "#4B4949",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#7F7D7D",
+          "#A09E9E",
+          "#C6C3C3",
+          "#F0EEEE"
+        ]
+      },
       "noche": {
         "role": "neutral",
-        "displayName": "Noche grafito",
-        "canonical": "oklch(18.8% 0.002 17.3)",
-        "tonalRamp": [
-          "#0C0B0B",
-          "#252424",
-          "#403F3F",
-          "#5E5D5D",
-          "#818080",
-          "#A5A4A4",
-          "#CBCACA",
-          "#EFEEEE"
-        ]
-      },
-      "grafito": {
-        "role": "neutral",
-        "displayName": "Grafito",
-        "canonical": "oklch(22.3% 0.002 17.3)",
-        "tonalRamp": [
-          "#0C0B0B",
-          "#252424",
-          "#403F3F",
-          "#5E5D5D",
-          "#818080",
-          "#A5A4A4",
-          "#CBCACA",
-          "#EFEEEE"
-        ]
-      },
-      "grafito-elevado": {
-        "role": "neutral",
-        "displayName": "Grafito elevado",
-        "canonical": "oklch(26.2% 0.003 17.3)",
+        "displayName": "Noche",
+        "canonical": "#211F1F",
         "tonalRamp": [
           "#0C0B0B",
           "#252323",
           "#413F3F",
           "#5F5D5D",
-          "#827F7F",
-          "#A6A4A4",
-          "#CCCACA",
+          "#7F7C7C",
+          "#A09E9E",
+          "#C6C3C3",
           "#F0EEEE"
         ]
       },
-      "humo": {
+      "algodon": {
         "role": "neutral",
-        "displayName": "Humo",
-        "canonical": "oklch(34.3% 0.003 17.3)",
+        "displayName": "Algodón",
+        "canonical": "#F6F5F1",
         "tonalRamp": [
-          "#0C0B0B",
-          "#252323",
-          "#413F3F",
-          "#5F5D5D",
-          "#827F7F",
-          "#A6A4A4",
-          "#CCCACA",
-          "#F0EEEE"
+          "#0C0B09",
+          "#252421",
+          "#40403D",
+          "#5E5E5A",
+          "#7E7D7A",
+          "#9F9E9B",
+          "#C5C4C0",
+          "#EFEEEA"
         ]
       },
-      "niebla": {
+      "algodon-2": {
         "role": "neutral",
-        "displayName": "Niebla",
-        "canonical": "oklch(70.2% 0.003 17.2)",
+        "displayName": "Algodón 2 (talón)",
+        "canonical": "#ECEAE5",
         "tonalRamp": [
-          "#0D0B0B",
-          "#262323",
-          "#413F3F",
-          "#5F5D5D",
-          "#827F7F",
-          "#A7A4A4",
-          "#CDCACA",
-          "#F1EDED"
+          "#0C0B08",
+          "#252420",
+          "#41403C",
+          "#5F5D59",
+          "#7F7D79",
+          "#A09E9A",
+          "#C6C4BF",
+          "#F0EEE9"
         ]
       },
-      "perla": {
+      "sobre": {
         "role": "neutral",
-        "displayName": "Perla difusor",
-        "canonical": "oklch(96.7% 0.001 106.4)",
+        "displayName": "Papel de sobre",
+        "canonical": "#D9D5CE",
         "tonalRamp": [
-          "#0B0B0B",
-          "#242423",
-          "#40403F",
-          "#5E5E5D",
-          "#80807F",
-          "#A4A4A4",
-          "#CACAC9",
-          "#EEEEED"
+          "#0D0B07",
+          "#27241E",
+          "#433F3A",
+          "#615D57",
+          "#807D76",
+          "#A29E97",
+          "#C7C4BD",
+          "#F2EEE7"
         ]
       },
-      "blanco": {
+      "solapa": {
         "role": "neutral",
-        "displayName": "Blanco",
-        "canonical": "oklch(100.0% 0.000 89.9)",
+        "displayName": "Solapa",
+        "canonical": "#CDC8C0",
         "tonalRamp": [
-          "#0B0B0B",
-          "#242424",
-          "#404040",
-          "#5D5D5D",
-          "#808080",
-          "#A4A4A4",
-          "#CACACA",
-          "#EEEEEE"
+          "#0E0B06",
+          "#27231D",
+          "#433F39",
+          "#615D56",
+          "#817D75",
+          "#A29E96",
+          "#C8C3BB",
+          "#F3EEE5"
         ]
       },
       "linea": {
         "role": "neutral",
-        "displayName": "Línea",
-        "canonical": "oklch(91.3% 0.002 67.8)",
+        "displayName": "Renglón",
+        "canonical": "#DCD9D3",
         "tonalRamp": [
-          "#0C0B0A",
-          "#252423",
-          "#403F3F",
-          "#5E5D5C",
-          "#81807F",
-          "#A5A4A3",
-          "#CBCAC9",
-          "#EFEEED"
-        ]
-      },
-      "carbon": {
-        "role": "neutral",
-        "displayName": "Gris carbón del kit",
-        "canonical": "oklch(47.7% 0.003 17.2)",
-        "tonalRamp": [
-          "#0C0B0B",
-          "#252323",
-          "#413F3F",
-          "#5F5D5D",
-          "#827F7F",
-          "#A6A4A4",
-          "#CCCACA",
-          "#F0EEEE"
+          "#0D0B07",
+          "#26241F",
+          "#423F3B",
+          "#605D58",
+          "#807D77",
+          "#A19E98",
+          "#C7C4BE",
+          "#F1EEE8"
         ]
       },
       "tinta": {
         "role": "neutral",
         "displayName": "Tinta",
-        "canonical": "oklch(21.5% 0.002 17.3)",
+        "canonical": "#232121",
         "tonalRamp": [
           "#0C0B0B",
-          "#252424",
-          "#403F3F",
-          "#5E5D5D",
-          "#818080",
-          "#A5A4A4",
-          "#CBCACA",
-          "#EFEEEE"
+          "#252323",
+          "#413F3F",
+          "#5F5D5D",
+          "#7F7C7C",
+          "#A09E9E",
+          "#C6C3C3",
+          "#F0EEEE"
         ]
       },
-      "difusor": {
+      "perla": {
         "role": "neutral",
-        "displayName": "Difusor encendido",
-        "canonical": "oklch(96.5% 0.010 87.5)",
+        "displayName": "Perla",
+        "canonical": "#ECE9E5",
         "tonalRamp": [
-          "#0D0B07",
-          "#26241F",
-          "#423F3A",
-          "#605D57",
-          "#83807A",
-          "#A7A49E",
-          "#CDCAC3",
-          "#F1EEE7"
+          "#0D0B08",
+          "#262421",
+          "#423F3C",
+          "#605D5A",
+          "#7F7D79",
+          "#A19E9A",
+          "#C6C4C0",
+          "#F1EEEA"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#404040",
+          "#5D5D5D",
+          "#7D7D7D",
+          "#9E9E9E",
+          "#C4C4C4",
+          "#EEEEEE"
         ]
       },
       "oro-claro": {
         "role": "primary",
         "displayName": "Oro claro",
-        "canonical": "oklch(85.8% 0.094 77.5)",
+        "canonical": "#F3C989",
         "tonalRamp": [
           "#1F0100",
           "#3C1A00",
           "#5B3700",
           "#7B560F",
-          "#9F7939",
-          "#C59D5E",
-          "#EDC383",
+          "#9C7636",
+          "#BF9758",
+          "#E6BD7D",
           "#FFE7A6"
         ]
       },
       "oro": {
         "role": "primary",
-        "displayName": "Oro del logo",
-        "canonical": "oklch(76.1% 0.104 75.2)",
+        "displayName": "Oro medio",
+        "canonical": "#D8A863",
         "tonalRamp": [
           "#210000",
           "#3F1700",
           "#5E3500",
           "#7F5300",
-          "#A47630",
-          "#CA9B56",
-          "#F2C17C",
+          "#A1742C",
+          "#C49550",
+          "#EBBB75",
           "#FFE59F"
         ]
       },
       "oro-oscuro": {
         "role": "primary",
         "displayName": "Oro oscuro",
-        "canonical": "oklch(64.1% 0.110 70.9)",
+        "canonical": "#B68039",
         "tonalRamp": [
           "#240000",
           "#431400",
           "#623200",
           "#835100",
-          "#A9742B",
-          "#D09852",
-          "#F8BE78",
+          "#A67128",
+          "#C9924C",
+          "#F1B872",
           "#FFE29C"
         ]
       },
       "oro-profundo": {
         "role": "primary",
         "displayName": "Oro profundo",
-        "canonical": "oklch(57.9% 0.116 63.8)",
+        "canonical": "#A96922",
         "tonalRamp": [
           "#270000",
           "#470D00",
           "#682D00",
           "#8A4C00",
-          "#B06F2A",
-          "#D79451",
-          "#FFBA77",
+          "#AD6C26",
+          "#D18E4B",
+          "#F9B471",
           "#FFDE9B"
         ]
       },
       "oro-texto": {
         "role": "primary",
-        "displayName": "Oro de texto",
-        "canonical": "oklch(49.9% 0.101 64.2)",
+        "displayName": "Oro de sello",
+        "canonical": "#8A5519",
         "tonalRamp": [
           "#240000",
           "#431300",
           "#633100",
           "#845011",
-          "#AA723A",
-          "#D1975F",
-          "#F9BD84",
+          "#A76F37",
+          "#CA9159",
+          "#F2B67E",
           "#FFE1A7"
         ]
       },
-      "alerta": {
-        "role": "error",
-        "displayName": "Alerta",
-        "canonical": "oklch(47.4% 0.155 30.1)",
+      "tinta-estampado": {
+        "role": "primary",
+        "displayName": "Tinta de estampado",
+        "canonical": "#2B2118",
         "tonalRamp": [
-          "#330000",
-          "#5A0000",
-          "#7E0000",
-          "#A32E21",
-          "#CC5544",
-          "#F67A68",
-          "#FFA18D",
-          "#FFC5AF"
+          "#120903",
+          "#2C2219",
+          "#483D34",
+          "#675B51",
+          "#877B70",
+          "#A99C90",
+          "#CFC1B6",
+          "#FAECE0"
+        ]
+      },
+      "alerta": {
+        "role": "tertiary",
+        "displayName": "Alerta",
+        "canonical": "#A12C1F",
+        "tonalRamp": [
+          "#2D0000",
+          "#4F0000",
+          "#721D14",
+          "#953E32",
+          "#BA5F51",
+          "#DF8071",
+          "#FFA695",
+          "#FFD0BE"
         ]
       }
     },
     "typographyMeta": {
-      "titan": {
-        "displayName": "Titán",
-        "purpose": "Hero, cierre y nombre de cada procedimiento."
+      "portada": {
+        "displayName": "Portada",
+        "purpose": "Titular del inicio, de cada procedimiento y del cierre."
       },
       "titulo": {
         "displayName": "Título",
-        "purpose": "Un titular por sección, terminado en punto."
-      },
-      "manifiesto": {
-        "displayName": "Manifiesto",
-        "purpose": "La frase cuyas palabras se encienden con el scroll."
+        "purpose": "Títulos de sección y de páginas interiores."
       },
       "subtitulo": {
         "displayName": "Subtítulo",
-        "purpose": "Títulos de panel y de bloque."
+        "purpose": "Pasos, ficha en blanco, grupos del formulario, menú del celular."
       },
-      "tarjeta": {
-        "displayName": "Tarjeta",
-        "purpose": "Nombres en listas, pasos y escenas."
+      "ficha": {
+        "displayName": "Ficha",
+        "purpose": "Nombre de un procedimiento o de un médico en su tarjeta."
       },
       "entrada": {
         "displayName": "Entrada",
-        "purpose": "La línea que acompaña a cada título."
+        "purpose": "Bajadas y texto de cada paso."
       },
-      "cuerpo": {
+      "body": {
         "displayName": "Cuerpo",
-        "purpose": "Texto corrido, máximo 38 rem."
+        "purpose": "Texto corriente."
       },
-      "etiqueta": {
-        "displayName": "Etiqueta",
-        "purpose": "Roles, detalles de caso y rótulos de campo."
+      "fecha": {
+        "displayName": "Fecha",
+        "purpose": "El día de la próxima jornada en el sello del talón."
+      },
+      "rotulo": {
+        "displayName": "Rótulo de campo",
+        "purpose": "Antes de un dato o como título impreso de una pieza; nunca encima de un titular."
+      },
+      "boton": {
+        "displayName": "Botón",
+        "purpose": "Rótulo de botones y enlaces."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "papel-apoyado",
+        "value": "filter: drop-shadow(0 1px 1px rgb(20 18 18 / 0.28)) drop-shadow(0 12px 18px rgb(20 18 18 / 0.32))",
+        "purpose": "Toda tarjeta, ficha y sobre; sigue el troquel."
+      },
+      {
+        "name": "papel-alzado",
+        "value": "filter: drop-shadow(0 1px 1px rgb(20 18 18 / 0.3)) drop-shadow(0 26px 34px rgb(20 18 18 / 0.42))",
+        "purpose": "Solo la tarjeta de valoración de la portada."
+      },
+      {
+        "name": "copia",
+        "value": "0 1px 1px rgb(20 18 18 / 0.22), 0 8px 16px -8px rgb(20 18 18 / 0.4)",
+        "purpose": "Foto impresa montada."
+      },
+      {
+        "name": "estampado",
+        "value": "0 1px 0 rgb(255 255 255 / 0.35) inset, 0 1px 2px rgb(20 18 18 / 0.25)",
+        "purpose": "Relieve del botón estampado."
+      },
+      {
+        "name": "solapa",
+        "value": "filter: drop-shadow(0 2px 2.5px rgb(35 33 33 / 0.22))",
+        "purpose": "Solapa del sobre."
+      },
+      {
+        "name": "bolsillo",
+        "value": "filter: drop-shadow(0 -1px 1.5px rgb(35 33 33 / 0.16))",
+        "purpose": "Bolsillo del sobre."
+      },
+      {
+        "name": "agujero",
+        "value": "inset 0 1px 2px rgb(0 0 0 / 0.45)",
+        "purpose": "Fondo hundido de la perforación."
+      }
+    ],
     "motion": [
       {
-        "name": "ease-luz",
+        "name": "ease-papel",
         "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Curva de casi todo: encender, enfocar, aparecer."
+        "purpose": "Curva por defecto de todo gesto de papel."
       },
       {
-        "name": "ease-escena",
-        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
-        "purpose": "Cambios en pantalla (texto de la escena que se despliega)."
+        "name": "ease-sello",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Impactos: el sello y la perforación."
       },
       {
-        "name": "encender",
-        "value": "filter blur(10px) brightness(0.55) + translate 18px → none, animation-timeline: view(), entry 0–70%",
-        "purpose": "Paneles e imágenes que se iluminan al entrar; sin transparencia."
+        "name": "caer",
+        "value": "1.1s ease-papel 0.45s; desde translateY(-2.5rem) rotate(-7deg)",
+        "purpose": "La tarjeta de la portada cae sobre la mesa. Quieta con reduced-motion."
       },
       {
-        "name": "tubo",
-        "value": "0.9s, opacidad 0 → .75 → .15 → .9 → .45 → 0",
-        "purpose": "Parpadeo del tubo al encender una placa de resultado."
+        "name": "estampar",
+        "value": "0.45s ease-sello 1.35s; scale 1.8 → 1",
+        "purpose": "El sello de la próxima jornada. Quieto con reduced-motion."
       },
       {
-        "name": "hero-recoger",
-        "value": "clip-path inset(0 round 0) → inset(9% 4.5% round 36px), scrub ligado al scroll",
-        "purpose": "El video del quirófano se recoge en un panel curvo."
+        "name": "subir",
+        "value": "0.9s ease-papel; translateY(14px), retraso 0.1/0.3/0.45s",
+        "purpose": "Texto de la portada. Quieto con reduced-motion."
       },
       {
-        "name": "pulsar",
-        "value": "scale(0.97), 160ms ease-luz",
-        "purpose": "Respuesta al presionar cualquier botón."
+        "name": "brillo",
+        "value": "animation-timeline: scroll(root); background-position 8% → 92%",
+        "purpose": "El oro estampado brilla al desplazar. Quieto con reduced-motion o sin soporte."
+      },
+      {
+        "name": "descubrir",
+        "value": "animation-timeline: view(); clip-path inset(0 0 100% 0) → inset(0); entry 5% – entry 85%",
+        "purpose": "Foto que se descubre. Visible desde el inicio con reduced-motion o sin soporte."
+      },
+      {
+        "name": "pluma",
+        "value": "stroke-dashoffset 1.15s ease-papel; retraso 0.1s + i × 0.2s; umbral 35 %",
+        "purpose": "El marcaje de la lámina se dibuja. Dibujado desde el servidor con reduced-motion."
+      },
+      {
+        "name": "perforar",
+        "value": "scale 0.2 → 1, 0.45s ease-sello; al 62 % de la pantalla",
+        "purpose": "Agujero de la tarjeta de controles. Todos perforados con reduced-motion."
+      },
+      {
+        "name": "sobre",
+        "value": "solapa 0.5s, frente 0.6s (+0.12s), foto 0.5s (+0.35s)",
+        "purpose": "Abrir un sobre. Instantáneo con reduced-motion."
+      },
+      {
+        "name": "menu",
+        "value": "hoja 0.3s; enlaces translateY(10px) 0.6s, cada 0.04s",
+        "purpose": "Menú del celular. Sin desplazamiento con reduced-motion."
+      },
+      {
+        "name": "portada-scroll",
+        "value": "GSAP scrub 0.4: video scale 1.08 yPercent 8, texto y -60, tarjeta (≥64rem) rotate -3 → 0 y -90",
+        "purpose": "Parallax de la portada. Desactivado con reduced-motion."
       }
     ],
     "breakpoints": [
       {
         "name": "sm",
-        "value": "640px"
+        "value": "40rem"
       },
       {
         "name": "md",
-        "value": "768px"
+        "value": "48rem"
       },
       {
         "name": "lg",
-        "value": "1024px"
-      },
-      {
-        "name": "pantalla-escena",
-        "value": "1024px (escena fija de la clínica)"
+        "value": "64rem"
       }
     ]
   },
   "components": [
     {
-      "name": "Botón de oro",
+      "name": "Botón estampado",
       "kind": "button",
-      "refersTo": "boton-oro",
-      "description": "El llamado principal: agenda tu valoración.",
-      "html": "<a class=\"ds-boton-oro\" href=\"#\">Agenda tu valoración</a>",
-      "css": ".ds-boton-oro{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:9999px;font:500 1rem/1 Inter,system-ui,sans-serif;letter-spacing:-0.01em;color:#141313;text-decoration:none;background-image:linear-gradient(135deg,#F3C989 0%,#D8A863 45%,#B68039 100%);background-size:160% 100%;background-position:0% 50%;transition:background-position 600ms cubic-bezier(0.22,1,0.36,1),transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-boton-oro:hover{background-position:100% 50%}.ds-boton-oro:active{transform:scale(0.97)}.ds-boton-oro:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
+      "refersTo": "button-primary",
+      "description": "El llamado principal a la valoración; uno solo a la vista.",
+      "html": "<a class=\"ds-boton ds-estampado\" href=\"#\">Agenda tu valoración gratuita</a>",
+      "css": ".ds-boton{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;min-height:3.25rem;padding:0 1.6rem;border-radius:2px;font-family:var(--font-sans, Inter, system-ui, sans-serif);font-size:0.8125rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;white-space:nowrap;text-decoration:none;cursor:pointer;transition:transform 160ms cubic-bezier(0.22,1,0.36,1),background-position 400ms cubic-bezier(0.22,1,0.36,1);} .ds-estampado{background-image:linear-gradient(112deg, var(--color-oro-oscuro) 0%, var(--color-oro) 24%, var(--color-oro-claro) 42%, #FBE3B8 50%, var(--color-oro-claro) 58%, var(--color-oro) 76%, var(--color-oro-profundo) 100%);background-size:260% 100%;background-position:18% 50%;color:#2B2118;border:0;box-shadow:0 1px 0 rgb(255 255 255 / 0.35) inset,0 1px 2px rgb(20 18 18 / 0.25);} .ds-estampado:hover{background-position:70% 50%;} .ds-estampado:active{transform:translateY(1px);box-shadow:0 1px 0 rgb(255 255 255 / 0.2) inset;} .ds-estampado:focus-visible{outline:2px solid #F3C989;outline-offset:3px;}"
     },
     {
-      "name": "Botón de contorno claro",
+      "name": "Botón en línea",
       "kind": "button",
-      "refersTo": "boton-contorno-claro",
-      "description": "Acción secundaria sobre grafito (WhatsApp, volver al inicio).",
-      "html": "<div style=\"background:#141313;padding:24px\"><a class=\"ds-boton-contorno\" href=\"#\">Escríbenos</a></div>",
-      "css": ".ds-boton-contorno{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:9999px;border:1px solid rgb(244 244 243/.3);color:#F4F4F3;font:500 1rem/1 Inter,system-ui,sans-serif;text-decoration:none;transition:border-color 200ms ease,background-color 200ms ease,transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-boton-contorno:hover{border-color:rgb(244 244 243/.7);background:rgb(244 244 243/.05)}.ds-boton-contorno:active{transform:scale(0.97)}"
+      "refersTo": "button-linea-carbon",
+      "description": "Secundario sobre carbón: filete del color del texto.",
+      "html": "<div class=\"ds-carbon\"><button class=\"ds-boton ds-linea ds-chico\" type=\"button\">Abrir todos</button></div>",
+      "css": ".ds-carbon{background:#5E5C5C;padding:1.5rem;} .ds-boton{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;min-height:3.25rem;padding:0 1.6rem;border-radius:2px;font-family:var(--font-sans, Inter, system-ui, sans-serif);font-size:0.8125rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;white-space:nowrap;text-decoration:none;cursor:pointer;} .ds-linea{background:transparent;color:#FFFFFF;border:1px solid currentColor;transition:background-color 200ms ease;} .ds-chico{min-height:2.75rem;padding:0 1.1rem;font-size:0.75rem;} .ds-linea:hover{background-color:rgb(255 255 255 / 0.08);} .ds-linea:active{transform:translateY(1px);} .ds-linea:focus-visible{outline:2px solid #F3C989;outline-offset:3px;}"
     },
     {
-      "name": "Enlace con chevron",
+      "name": "Enlace",
       "kind": "custom",
-      "refersTo": "enlace-flecha",
-      "description": "Acción secundaria por defecto, en oro.",
-      "html": "<a class=\"ds-enlace\" href=\"#\">Ver procedimientos <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.5 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-enlace{display:inline-flex;align-items:center;gap:4px;color:#8A5519;font:500 1.0625rem/1.2 Inter,system-ui,sans-serif;text-decoration:none}.ds-enlace svg{transition:transform 300ms cubic-bezier(0.22,1,0.36,1)}.ds-enlace:hover{text-decoration:underline;text-underline-offset:.2em}.ds-enlace:hover svg{transform:translateX(2px)}"
+      "refersTo": "enlace",
+      "description": "Llamado secundario: rótulo subrayado con flecha larga, en oro de sello sobre papel.",
+      "html": "<div class=\"ds-papel\"><a class=\"ds-enlace\" href=\"#\">Cómo llegar <svg width=\"18\" height=\"14\" viewBox=\"0 0 18 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M1 7h15M11 2l5 5-5 5\"/></svg></a></div>",
+      "css": ".ds-papel{background:#F6F5F1;padding:1.5rem;} .ds-enlace{display:inline-flex;align-items:center;gap:0.55rem;min-height:2.75rem;font-family:Inter,system-ui,sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#8A5519;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);text-underline-offset:0.45em;transition:text-decoration-color 200ms ease;} .ds-enlace svg{transition:transform 300ms cubic-bezier(0.22,1,0.36,1);} .ds-enlace:hover{text-decoration-color:currentColor;} .ds-enlace:hover svg{transform:translateX(3px);} .ds-enlace:focus-visible{outline:2px solid #8A5519;outline-offset:3px;}"
+    },
+    {
+      "name": "Tarjeta de valoración con talón",
+      "kind": "card",
+      "refersTo": "tarjeta-papel",
+      "description": "Algodón troquelado con talón perforado (muescas y línea de corte) y sello de fecha.",
+      "html": "<div class=\"ds-mesa\"><div class=\"ds-sombra\"><aside class=\"ds-tarjeta\"><div class=\"ds-cuerpo\"><p class=\"ds-rotulo ds-oro\">Tarjeta de valoración</p><dl><div class=\"ds-dato\"><dt class=\"ds-rotulo\">Modalidad</dt><dd>Presencial o virtual</dd></div><div class=\"ds-dato\"><dt class=\"ds-rotulo\">Respuesta</dt><dd>Por WhatsApp</dd></div></dl></div><div class=\"ds-talon\"><p class=\"ds-rotulo\">Próxima<br>jornada</p><p class=\"ds-sello\"><span style=\"font-size:0.62rem;letter-spacing:0.2em\">Semana</span><span class=\"ds-dia\">14</span><span style=\"font-size:0.75rem\">Nov</span></p></div></aside></div></div>",
+      "css": ".ds-mesa{background:#5E5C5C;padding:2rem;} .ds-sombra{max-width:26rem;filter:drop-shadow(0 1px 1px rgb(20 18 18 / 0.3)) drop-shadow(0 26px 34px rgb(20 18 18 / 0.42));} .ds-tarjeta{--talon:8.75rem;--corte:calc(100% - var(--talon));display:grid;grid-template-columns:1fr var(--talon);background:#F6F5F1;color:#232121;border-radius:0.875rem;font-family:Inter,system-ui,sans-serif;-webkit-mask:radial-gradient(circle 0.6rem at var(--corte) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 0.6rem at var(--corte) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 0.6rem at var(--corte) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 0.6rem at var(--corte) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;} .ds-cuerpo{padding:1.5rem;} .ds-rotulo{margin:0;font-size:0.75rem;line-height:1.3;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#5E5C5C;} .ds-oro{color:#8A5519;} .ds-tarjeta dl{margin:1rem 0 0;} .ds-dato{padding:0.75rem 0;} .ds-dato+.ds-dato{border-top:1px solid #DCD9D3;} .ds-dato dd{margin:0.25rem 0 0;font-size:1.02rem;} .ds-talon{display:flex;flex-direction:column;justify-content:space-between;padding:1.5rem 1.25rem 1.25rem;background-color:#ECEAE5;border-radius:0 0.875rem 0.875rem 0;background-image:linear-gradient(to bottom,rgb(35 33 33 / 0.28) 55%,transparent 0);background-size:1px 9px;background-repeat:repeat-y;} .ds-sello{display:inline-flex;flex-direction:column;align-items:center;align-self:flex-start;gap:0.1rem;margin:1rem 0 0;padding:0.4rem 0.75rem 0.35rem;border:2px solid #8A5519;outline:1px solid #8A5519;outline-offset:2px;border-radius:3px;color:#8A5519;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;line-height:1.05;rotate:-7deg;} .ds-dia{font-size:2.4rem;font-weight:600;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;}"
     },
     {
       "name": "Campo de texto",
       "kind": "input",
       "refersTo": "campo",
-      "description": "Campos del formulario de valoración.",
-      "html": "<label class=\"ds-rotulo\">Nombre y apellido<input class=\"ds-campo\" placeholder=\"María Fernanda Pérez\"></label>",
-      "css": ".ds-rotulo{display:block;font:500 .9rem/1.3 Inter,system-ui,sans-serif;color:#1A1919}.ds-campo{display:block;margin-top:8px;width:100%;min-height:52px;padding:0 16px;border-radius:16px;border:1px solid #E3E2E1;background:#fff;font:400 1.0625rem Inter,system-ui,sans-serif;color:#1A1919;caret-color:#A96922}.ds-campo::placeholder{color:rgb(94 92 92/.6)}.ds-campo:focus{outline:none;border-color:#1A1919}.ds-campo:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
+      "description": "Campo del formulario: fondo blanco, filete renglón, canto de 2 px; foco en tinta y oro de sello.",
+      "html": "<div class=\"ds-papel\"><label class=\"ds-rotulo\" for=\"ds-c\">Tu nombre</label><input id=\"ds-c\" class=\"ds-campo\" placeholder=\"Nombre y apellido\"></div>",
+      "css": ".ds-papel{background:#F6F5F1;padding:1.5rem;font-family:Inter,system-ui,sans-serif;} .ds-rotulo{display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#5E5C5C;} .ds-campo{display:block;width:100%;margin-top:0.5rem;padding:0.75rem 1rem;background:#FFFFFF;border:1px solid #DCD9D3;border-radius:2px;font:inherit;font-size:1.0625rem;color:#232121;caret-color:#A96922;transition:border-color 200ms ease;} .ds-campo::placeholder{color:rgb(94 92 92 / 0.7);} .ds-campo:focus{border-color:#232121;outline:none;} .ds-campo:focus-visible{outline:2px solid #8A5519;outline-offset:2px;}"
     },
     {
-      "name": "Panel difusor",
-      "kind": "card",
-      "refersTo": "panel-difusor",
-      "description": "Panel blanco sobre perla con filas separadas por líneas; la luz sigue al puntero.",
-      "html": "<div style=\"background:#F4F4F3;padding:24px\"><article class=\"ds-difusor\"><h3>Busto</h3><a href=\"#\"><span>Aumento mamario</span><small>Implantes para ganar volumen y proporción.</small></a><a href=\"#\"><span>Pexia mamaria sin implantes</span><small>Eleva y da firmeza con tu propio tejido.</small></a></article></div>",
-      "css": ".ds-difusor{background:#fff;border-radius:36px;padding:40px;font-family:Inter,system-ui,sans-serif}.ds-difusor h3{margin:0 0 20px;font-weight:300;font-size:2rem;letter-spacing:-0.022em;color:#1A1919}.ds-difusor a{display:block;border-top:1px solid #E3E2E1;padding:20px 0;text-decoration:none}.ds-difusor span{display:block;font-size:1.2rem;color:#1A1919;letter-spacing:-0.015em}.ds-difusor small{display:block;margin-top:4px;font-size:.95rem;color:#5E5C5C}.ds-difusor a:hover span{text-decoration:underline}"
+      "name": "Casilla impresa",
+      "kind": "chip",
+      "refersTo": "casilla",
+      "description": "Opción del formulario; marcada pasa a blanco con filete y punto en tinta.",
+      "html": "<div class=\"ds-papel\"><label class=\"ds-casilla\"><input type=\"radio\" name=\"ds-m\" checked><span class=\"ds-punto\"></span><span>Presencial<small>En Aguachica</small></span></label><label class=\"ds-casilla\"><input type=\"radio\" name=\"ds-m\"><span class=\"ds-punto\"></span><span>Virtual<small>Desde tu casa</small></span></label></div>",
+      "css": ".ds-papel{background:#F6F5F1;padding:1.5rem;display:grid;gap:0.625rem;font-family:Inter,system-ui,sans-serif;} .ds-casilla{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem;background:#F6F5F1;border:1px solid #DCD9D3;border-radius:2px;color:#232121;cursor:pointer;transition:background-color .2s ease,border-color .2s ease;} .ds-casilla input{position:absolute;opacity:0;width:1px;height:1px;} .ds-casilla small{display:block;margin-top:0.125rem;font-size:0.85rem;color:#5E5C5C;} .ds-punto{width:1.25rem;height:1.25rem;flex-shrink:0;border-radius:50%;border:1px solid rgb(35 33 33 / 0.45);transition:box-shadow .2s ease,background-color .2s ease;} .ds-casilla:has(input:checked){background:#FFFFFF;border-color:#232121;} .ds-casilla:has(input:checked) .ds-punto{background:#232121;border-color:#232121;box-shadow:inset 0 0 0 4px #FFFFFF;} .ds-casilla:has(input:focus-visible){outline:2px solid #8A5519;outline-offset:2px;}"
     },
     {
-      "name": "Placa de resultado",
-      "kind": "custom",
-      "refersTo": "placa",
-      "description": "Resultado apagado por defecto; se enciende con un interruptor de dos estados.",
-      "html": "<figure class=\"ds-placa\"><div class=\"ds-placa-luz\"><span>Enciéndela para verla</span></div><figcaption><div><p>Alectomía</p><small>Antes y después · Dr. Alan Rodríguez</small></div><button aria-pressed=\"false\">Encender</button></figcaption></figure>",
-      "css": ".ds-placa{margin:0;max-width:360px;border-radius:28px;overflow:hidden;background:#1C1B1B;box-shadow:0 0 0 1px rgb(244 244 243/.1);font-family:Inter,system-ui,sans-serif}.ds-placa-luz{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#3a3534,#141313);color:rgb(244 244 243/.75);font-size:.85rem}.ds-placa figcaption{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px}.ds-placa p{margin:0;color:#F4F4F3}.ds-placa small{color:#A19E9E;font-size:.85rem}.ds-placa button{min-height:40px;padding:0 16px;border:0;border-radius:9999px;font:500 .85rem Inter,system-ui,sans-serif;color:#141313;background:linear-gradient(135deg,#F3C989,#D8A863 45%,#B68039);transition:transform 160ms cubic-bezier(0.22,1,0.36,1)}.ds-placa button:active{transform:scale(0.97)}.ds-placa button:focus-visible{outline:2px solid #D8A863;outline-offset:3px}"
-    },
-    {
-      "name": "Barra local",
+      "name": "Cabecera (membrete)",
       "kind": "nav",
-      "refersTo": "barra-local",
-      "description": "Navegación fija de 56 px que cambia de tono con la sección de debajo.",
-      "html": "<nav class=\"ds-barra\"><strong>Clínica Estética Ana Cure</strong><span><a href=\"#\">Procedimientos</a><a href=\"#\">La clínica</a><a href=\"#\">Resultados</a></span><a class=\"ds-barra-cta\" href=\"#\">Agenda tu valoración</a></nav>",
-      "css": ".ds-barra{display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 24px;background:rgb(20 19 19/.72);backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgb(255 255 255/.08);font-family:Inter,system-ui,sans-serif}.ds-barra strong{font-weight:400;color:#F4F4F3;font-size:.9rem}.ds-barra span{display:flex;gap:28px}.ds-barra span a{color:rgb(244 244 243/.75);font-size:.82rem;text-decoration:none;transition:color 200ms}.ds-barra span a:hover{color:#F4F4F3}.ds-barra-cta{min-height:36px;display:inline-flex;align-items:center;padding:0 16px;border-radius:9999px;font-size:.82rem;font-weight:500;color:#141313;text-decoration:none;background:linear-gradient(135deg,#F3C989,#D8A863 45%,#B68039)}"
+      "refersTo": "cabecera",
+      "description": "Barra fija en carbón con rótulos de navegación y el botón chico, que se guarda mientras se ve otro llamado.",
+      "html": "<header class=\"ds-cab\"><span class=\"ds-logo\">Clínica Estética Ana Cure</span><nav><a href=\"#\">Procedimientos</a><a href=\"#\">La clínica</a><a href=\"#\">Resultados</a><a href=\"#\">Equipo</a></nav><a class=\"ds-cta\" href=\"#\">Agenda tu valoración</a></header>",
+      "css": ".ds-cab{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:4rem;padding:0 2rem;background:#5E5C5C;border-bottom:1px solid rgb(255 255 255 / 0.12);font-family:Inter,system-ui,sans-serif;} .ds-logo{color:#F3C989;font-weight:300;} .ds-cab nav{display:flex;gap:2rem;} .ds-cab nav a{padding:0.5rem 0;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgb(255 255 255 / 0.8);text-decoration:none;transition:color 200ms;} .ds-cab nav a:hover{color:#FFFFFF;} .ds-cab a:focus-visible{outline:2px solid #F3C989;outline-offset:3px;} .ds-cta{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border-radius:2px;font-size:0.75rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;text-decoration:none;color:#2B2118;background-image:linear-gradient(112deg, var(--color-oro-oscuro) 0%, var(--color-oro) 24%, var(--color-oro-claro) 42%, #FBE3B8 50%, var(--color-oro-claro) 58%, var(--color-oro) 76%, var(--color-oro-profundo) 100%);background-size:260% 100%;background-position:18% 50%;box-shadow:0 1px 0 rgb(255 255 255 / 0.35) inset,0 1px 2px rgb(20 18 18 / 0.25);transition:background-position 400ms;} .ds-cta:hover{background-position:70% 50%;}"
+    },
+    {
+      "name": "Copia impresa",
+      "kind": "custom",
+      "refersTo": "copia",
+      "description": "Foto montada con borde blanco y sombra de copia pegada; pie en rótulo.",
+      "html": "<div class=\"ds-papel\"><figure class=\"ds-fig\"><div class=\"ds-copia\"><div class=\"ds-foto\"></div></div><figcaption>Quirófano</figcaption></figure></div>",
+      "css": ".ds-papel{background:#F6F5F1;padding:1.5rem;font-family:Inter,system-ui,sans-serif;} .ds-fig{margin:0;max-width:18rem;} .ds-copia{background:#FFFFFF;padding:0.3rem;box-shadow:0 1px 1px rgb(20 18 18 / 0.22),0 8px 16px -8px rgb(20 18 18 / 0.4);} .ds-foto{aspect-ratio:4/3;background:linear-gradient(160deg,#ECEAE5,#CDC8C0);} .ds-fig figcaption{margin-top:0.75rem;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#5E5C5C;}"
+    },
+    {
+      "name": "Perforación de controles",
+      "kind": "custom",
+      "refersTo": "tarjeta-papel",
+      "description": "Guía punteada que, al alcanzar el paso, se vuelve agujero con ojalillo de oro.",
+      "html": "<div class=\"ds-papel\"><button class=\"ds-paso\" type=\"button\" onclick=\"this.toggleAttribute('data-perforado')\"><span class=\"ds-perf\"></span><span>1 · Valoración</span></button></div>",
+      "css": ".ds-papel{background:#F6F5F1;padding:1.5rem;font-family:Inter,system-ui,sans-serif;} .ds-paso{display:flex;align-items:center;gap:1rem;background:none;border:0;font:inherit;font-size:1.6rem;font-weight:300;color:#232121;cursor:pointer;} .ds-perf{position:relative;display:block;width:1.35rem;height:1.35rem;border-radius:50%;border:1.5px dashed rgb(35 33 33 / 0.32);transition:border-color .3s ease;} .ds-perf::after{content:'';position:absolute;inset:-1.5px;border-radius:50%;background:radial-gradient(circle,#4B4949 0 0.36rem,#B68039 0.38rem 0.5rem,#F3C989 0.52rem 0.6rem,#D8A863 0.62rem);box-shadow:inset 0 1px 2px rgb(0 0 0 / 0.45);scale:0.2;opacity:0;transition:scale .45s cubic-bezier(0.16,1,0.3,1),opacity .2s ease;} .ds-paso[data-perforado] .ds-perf{border-color:transparent;} .ds-paso[data-perforado] .ds-perf::after{scale:1;opacity:1;} .ds-paso:focus-visible{outline:2px solid #8A5519;outline-offset:3px;}"
     }
   ],
   "narrative": {
-    "northStar": "La caja de luz",
-    "overview": "El sitio funciona como el negatoscopio donde el cirujano lee cada caso: todo aparece iluminado desde atrás. La gramática es la de una página de producto de Apple (titulares grandes, mosaicos de esquinas suaves, escenas ligadas al scroll), pero el producto es una clínica y la luz es su argumento: el quirófano real abre la página en video, los paneles se «encienden» al entrar y los resultados llegan apagados hasta que la persona decide verlos.\n\nEs un sistema de tres tintas: grafito cálido, oro del logo y blanco perla. El oro es la única luz; nunca decora un fondo entero. La densidad es baja y el ritmo alterna secciones oscuras (escenas, resultados, cierre) con secciones claras (procedimientos, proceso, recuperación, equipo), cada una con una sola idea y pocas palabras.",
+    "northStar": "Papelería clínica",
+    "overview": "**Creative North Star: \"Papelería clínica\"**\n\nLa clínica se cuenta con su propia papelería: la tarjeta de valoración, el fichero de procedimientos, la tarjeta de controles, el sobre de resultados y la tarjeta de presentación de cada médico. La página es una cartulina gris carbón, el gris del kit. Encima se apoyan piezas de algodón blanco troqueladas, con sombra de papel real. El logo, el botón principal y la tinta de sello van en el oro del kit. Todo lo que no es papelería (el video del quirófano, las fotos) entra como material de verdad: el video a sangre bajo un velo, las fotos como copias impresas montadas en la tarjeta.\n\nLa densidad es la de un formulario impreso: renglones finos, rótulos de campo en mayúscula espaciada y datos en Inter Light. Hay una pieza protagonista por pantalla y mucho papel vacío alrededor. El movimiento imita gestos de papelería: la tarjeta cae sobre la mesa, el sello se estampa, la perforadora marca cada paso, el sobre se abre, la pluma del cirujano dibuja el marcaje y el oro brilla al desplazar la página. Cada uno tiene su versión quieta.\n\nEste mundo reemplaza por completo al anterior («A la luz», 21 oct 2026). Rechaza la página de producto de Apple (titulares gigantes centrados, mosaicos muy redondeados, botones píldora, escenas fijas) y la clínica de stock (paciente sonriente, verde azulado, carrusel de antes y después).",
     "keyCharacteristics": [
-      "Video del quirófano real, graduado en grafito y oro, que se recoge en un panel curvo al bajar.",
-      "Paneles de radio amplio que se superponen; nunca sombras.",
-      "Inter Light grande y apretada, con el corte de tamaño óptico de titular.",
-      "Movimiento como luz: enfocar, encender, dibujar la línea dorada.",
-      "Material propio, sin fotos de stock: quirófano, equipo y resultados de la clínica."
+      "Cartulina carbón como suelo y piezas de algodón encima; nunca algodón como fondo de página, salvo el pie (la hoja del membrete).",
+      "Un solo radio curvo, el del troquel (14 px). Lo demás es recto o casi recto.",
+      "El oro estampado se reserva para el llamado principal; el oro de sello es el único oro para texto sobre algodón.",
+      "Rótulos de campo antes de un dato, nunca encima de un titular.",
+      "Titulares en Inter Light, alineados a la izquierda y sin punto final.",
+      "Sombras cortas con caída, siguiendo la silueta troquelada."
     ],
     "rules": [
       {
-        "name": "The Three Inks Rule",
-        "body": "Grafito, oro y perla, nada más; también el botón de WhatsApp va en grafito y oro, nunca en verde. La única excepción es el rojo de alerta en los errores.",
+        "name": "The Two-Stock Rule",
+        "body": "El texto sobre carbón es blanco, perla u oro claro; el texto sobre algodón es tinta, carbón u oro de sello. Ningún color de una cartulina se usa como texto en la otra.",
         "section": "colors"
       },
       {
-        "name": "The Gold Is Light Rule",
-        "body": "El oro marca lo que está encendido o es accionable: botón principal, línea alcanzada, enlaces. Nunca llena una sección ni un panel.",
+        "name": "The One Gold Voice Rule",
+        "body": "El oro estampado solo cubre el llamado principal. Un llamado secundario sobre papel es un enlace en oro de sello; nunca un segundo botón estampado al lado del primero.",
         "section": "colors"
       },
       {
-        "name": "The No Eyebrow Rule",
-        "body": "Ningún título lleva rótulo encima. El título habla solo; el dato secundario va debajo (rol, detalle) en oro de texto.",
+        "name": "The Field Label Rule",
+        "body": "El rótulo es un campo impreso: va antes de un dato o como título propio de una pieza (la pestaña, «Tarjeta de controles»). Nunca encima de un titular como antetítulo.",
         "section": "typography"
       },
       {
-        "name": "The Period Rule",
-        "body": "Los títulos de sección son frases cortas y terminan en punto.",
+        "name": "The Light Headline Rule",
+        "body": "Todo titular va en Inter Light (300), alineado a la izquierda, con `text-wrap: balance` y sin punto final. Si necesita más fuerza, crece; no se pone en negrita ni se centra.",
         "section": "typography"
       },
       {
-        "name": "The Overlap Not Shadow Rule",
-        "body": "Si algo debe verse encima, se superpone; nunca se le pone sombra.",
+        "name": "The Paper Shadow Rule",
+        "body": "Una sombra es papel sobre papel: corta, hacia abajo y en el gris de la tinta. Si una pieza no es papel, no tiene sombra.",
         "section": "elevation"
       },
       {
-        "name": "The Light On Entry Rule",
-        "body": "Los paneles e imágenes se encienden al entrar (enfoque y brillo, sin transparencia); los titulares y el texto ya están ahí.",
-        "section": "elevation"
+        "name": "The Die-Cut Rule",
+        "body": "El sitio tiene una sola curva: el radio del troquel (14 px) en tarjetas, fichas, sobres, el talón y la pestaña del fichero (solo arriba). Fotos y copias son rectas. Botones, campos, casillas y el botón de pausa tienen un canto de 2 px, que se lee recto; el sello, 3 px. Los únicos círculos son funcionales: la perforación, el cierre del sobre, el botón para cerrar un sobre abierto y el punto de la opción del formulario.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Still Paper Rule",
+        "body": "Con `prefers-reduced-motion: reduce` el papel ya está quieto en su sitio: no se pide el video (queda el póster, también con ahorro de datos), no hay entradas de portada ni parallax, el oro no brilla, las fotos están a la vista, las láminas vienen dibujadas desde el servidor, todos los pasos ya están perforados, sobres y menú cambian al instante y el desplazamiento no es suave.",
+        "section": "components"
       }
     ],
     "dos": [
-      "Do usar material propio de la clínica (quirófano, equipo, sedes, resultados) y registrar su origen en la imagen.",
-      "Do mantener los resultados apagados por defecto y cargar la foto solo al encenderla.",
-      "Do dar a toda escena de scroll una versión quieta con prefers-reduced-motion.",
-      "Do verificar 4,5:1 en texto pequeño y 3:1 en titulares, también en los estados animados."
+      "Do apoyar cada pieza de algodón sobre la cartulina carbón con la sombra de papel apoyado, aplicada como filtro al envoltorio para que siga el troquel.",
+      "Do usar el radio del troquel (14px) para toda tarjeta, ficha y sobre, y el canto de 2px para botones, campos y casillas.",
+      "Do poner un solo botón estampado en oro a la vista y marcar con `data-cta-portada` cada llamado de la página para que la cabecera guarde el suyo.",
+      "Do escribir el texto sobre algodón en tinta, carbón u oro de sello, y sobre carbón en blanco, perla u oro claro de 18 px o más.",
+      "Do montar las fotos como copias impresas (borde blanco de 0,3 rem) y los esquemas como láminas con marcas de registro.",
+      "Do usar el talón perforado (muescas y línea de corte) para el resumen o el dato aparte de una tarjeta.",
+      "Do darle a cada gesto de papel su versión quieta con `prefers-reduced-motion`."
     ],
     "donts": [
-      "Don't usar sombras, vidrio decorativo ni texto en degradado.",
-      "Don't poner rótulos o «eyebrows» sobre los títulos.",
-      "Don't introducir un cuarto color (ni el verde de WhatsApp ni el púrpura del spa).",
-      "Don't usar fotos de stock ni prometer resultados."
+      "Don't poner un rótulo en mayúscula espaciada encima de un titular como antetítulo.",
+      "Don't centrar titulares, ponerlos en negrita ni cerrarlos con punto.",
+      "Don't usar otra curva que la del troquel: nada de botones píldora ni tarjetas de 28 a 36 px.",
+      "Don't usar el oro claro, el oro medio ni el oro oscuro como texto sobre algodón; ahí solo va el oro de sello.",
+      "Don't poner un segundo botón estampado junto al principal; el llamado secundario es un enlace o un botón en línea.",
+      "Don't usar sombras de color, resplandores ni sombras duras desplazadas.",
+      "Don't mostrar una foto de resultados sin que la persona abra su sobre."
     ]
   }
 }

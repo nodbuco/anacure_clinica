@@ -262,18 +262,70 @@
   /* ---------- Pestaña del fichero ---------- */
   .pestana { border-radius: var(--radius-troquel) var(--radius-troquel) 0 0; }
 
-  /* ---------- Foto montada con esquineros de álbum ----------
-     Cada esquinero es un triángulo de cartulina con su borde y su sombra; la sombra va en el
-     contenedor porque el recorte del triángulo se la llevaría. */
-  .esquineros { pointer-events: none; filter: drop-shadow(0 1px 1.5px rgb(20 18 18 / 0.45)); }
-  .esquinero {
-    position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: -2px;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    background: linear-gradient(135deg, var(--color-carbon) 0%, var(--color-carbon-hondo) 70%);
+  /* ---------- Foto montada: copia impresa con su borde blanco, pegada a la tarjeta ---------- */
+  .copia {
+    background-color: var(--color-blanco);
+    padding: 0.3rem;
+    box-shadow: 0 1px 1px rgb(20 18 18 / 0.22), 0 8px 16px -8px rgb(20 18 18 / 0.4);
   }
+
+  /* Marcas de registro en las cuatro esquinas de una lámina, como en un pliego impreso. */
+  .marco-lamina {
+    --registro: rgb(94 92 92 / 0.5);
+    background:
+      linear-gradient(var(--registro), var(--registro)) left top / 0.75rem 1px no-repeat,
+      linear-gradient(var(--registro), var(--registro)) left top / 1px 0.75rem no-repeat,
+      linear-gradient(var(--registro), var(--registro)) right top / 0.75rem 1px no-repeat,
+      linear-gradient(var(--registro), var(--registro)) right top / 1px 0.75rem no-repeat,
+      linear-gradient(var(--registro), var(--registro)) left bottom / 0.75rem 1px no-repeat,
+      linear-gradient(var(--registro), var(--registro)) left bottom / 1px 0.75rem no-repeat,
+      linear-gradient(var(--registro), var(--registro)) right bottom / 0.75rem 1px no-repeat,
+      linear-gradient(var(--registro), var(--registro)) right bottom / 1px 0.75rem no-repeat;
+  }
+  /* Renglones de ficha en blanco. */
+  .renglones {
+    background-image: linear-gradient(to bottom, transparent calc(2rem - 1px), rgb(35 33 33 / 0.11) calc(2rem - 1px));
+    background-size: 100% 2rem;
+  }
+
+  /* ---------- Láminas de marcaje ----------
+     Figura en grafito y marcaje en oro, con grosor de pantalla constante (vector-effect) para que
+     la lámina se vea igual de fina en una tarjeta del celular y en la ficha grande. */
+  .lamina-trazo {
+    fill: none;
+    stroke: var(--color-carbon);
+    stroke-width: 1.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .lamina-fino { stroke-width: 0.9; opacity: 0.8; }
+  .lamina-tenue { stroke-width: 0.9; opacity: 0.45; }
+  .lamina-punto { fill: var(--color-carbon); }
+  .lamina-brillo { fill: var(--color-algodon); }
+  .lamina-marca, .lamina-flecha, .lamina-corte {
+    fill: none;
+    stroke: var(--color-oro-oscuro);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .lamina-marca { stroke-width: 1.7; stroke-dasharray: 4 3.4; }
+  .lamina-flecha { stroke-width: 1.5; }
+  .lamina-corte { stroke: var(--color-oro-profundo); stroke-width: 2.4; }
+  /* La pluma: la máscara que deja ver el marcaje a medida que «se dibuja». */
+  .lamina-pluma {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.15s var(--ease-papel);
+    transition-delay: calc(0.1s + var(--i, 0) * 0.2s);
+  }
+  [data-dibujo="espera"] .lamina-pluma { stroke-dashoffset: 1; transition: none; }
 
   /* ---------- Perforación de la tarjeta de controles ----------
      Antes: la guía punteada de la perforadora. Al pasar el paso: el agujero, que deja ver la
@@ -323,8 +375,8 @@
   to { opacity: 1; transform: none; }
 }
 @keyframes video-entrar {
-  from { opacity: 0; transform: scale(1.05); }
-  to { opacity: 1; transform: none; }
+  from { transform: scale(1.05); }
+  to { transform: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .portada-video { animation: video-entrar 1.8s var(--ease-papel) both; }

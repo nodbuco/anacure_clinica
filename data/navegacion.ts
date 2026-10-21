@@ -9,7 +9,7 @@ export const NAV_PRINCIPAL: Enlace[] = [
   { href: "/#clinica", etiqueta: "La clínica" },
   { href: "/#resultados", etiqueta: "Resultados" },
   { href: "/#equipo", etiqueta: "Equipo" },
-  { href: "/#sedes", etiqueta: "Sedes" },
+  { href: "/#ubicacion", etiqueta: "Ubicación" },
 ];
 
 export const NAV_LEGAL: Enlace[] = [{ href: "/privacidad", etiqueta: "Privacidad y datos" }];

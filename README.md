@@ -1,6 +1,6 @@
 # Clínica Estética Ana Cure · sitio web
 
-Sitio de la clínica de cirugía plástica y medicina estética de Ana Cure (Aguachica y El Banco).
+Sitio de la clínica de cirugía plástica y medicina estética de Ana Cure, en Aguachica (Cesar).
 Su trabajo es uno: que la persona pida su **valoración gratuita para la próxima jornada**. El formulario
 arma el mensaje y lo abre en el WhatsApp de la clínica; el sitio no guarda datos.
 
@@ -15,7 +15,7 @@ Sitio hermano: Ana Cure Estética & Spa (`nodbuco/anacure_esteticayspa`), donde 
 | Resultados (antes y después) | `data/resultados.ts` + la foto en `public/media/resultados/` |
 | Médicos | `data/equipo.ts` |
 | WhatsApp, Instagram, datos legales | `data/site.ts` |
-| Sedes y horario | `data/sedes.ts` |
+| Sede (Aguachica) y horario | `data/sedes.ts` |
 
 Cada cambio se publica con un nuevo despliegue (ver `docs/despliegue.md`).
 
@@ -41,13 +41,16 @@ están en `.env.example`.
 - **Movimiento**: la tarjeta de valoración cae y se estampa el sello al cargar; la tarjeta de controles se
   perfora paso a paso al bajar (GSAP, `lib/gsap.ts`); las fotos se descubren y el oro brilla con CSS de scroll.
   Todo tiene versión quieta.
+- **Procedimientos**: cada uno con su lámina de marcaje (`components/procedimientos/Lamina.tsx`), dibujada a mano
+  en SVG: figura en grafito y el marcaje del cirujano en oro, que se dibuja al entrar en pantalla. Para añadir un
+  procedimiento, agrega su lámina en `LAMINAS` (si no tiene, la casilla queda sin dibujo).
 - **Resultados**: llegan en sobre cerrado; la foto real solo se descarga cuando la persona abre el sobre.
 - **Analítica**: `lib/analytics.ts` (Plausible cuando exista `NEXT_PUBLIC_PLAUSIBLE_HOST`).
 
 ## Pendiente de confirmar con Ana
 
 - Número de habilitación sanitaria (si debe figurar en el sitio).
-- Si El Banco opera o solo valora, y la plataforma de la valoración virtual.
+- La plataforma de la valoración virtual.
 - Retratos de cada médico y los roles exactos de la Dra. Diana García y el Dr. Javier de la Rosa.
 - Si la clínica factura con la misma sociedad del spa (pie de página y política de datos).
 - Que el convenio con FOMAG sigue vigente en 2026 (el sitio lo menciona en el cierre y en el formulario).

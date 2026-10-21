@@ -1,5 +1,5 @@
 import type { Procedimiento } from "@/data/procedimientos";
-import { HORARIO, LISTA_SEDES } from "@/data/sedes";
+import { HORARIO, SEDE } from "@/data/sedes";
 import { SITE } from "@/data/site";
 
 /** JSON-LD listo para un <script>: escapa «<» para que ningún texto pueda cerrar la etiqueta. */
@@ -14,7 +14,7 @@ const horario = HORARIO.estructurado.map((h) => ({
   closes: h.cierra,
 }));
 
-/** La clínica (schema.org MedicalClinic), una entrada por sede, y el sitio web. */
+/** La organización, la clínica de Aguachica (schema.org MedicalClinic) y el sitio web. */
 export function jsonLdClinica() {
   return {
     "@context": "https://schema.org",
@@ -30,28 +30,28 @@ export function jsonLdClinica() {
         image: `${SITE.url}/og/portada.jpg`,
         sameAs: [SITE.instagram],
         telephone: SITE.telefonoInternacional,
-        subOrganization: LISTA_SEDES.map((s) => ({ "@id": `${SITE.url}/#sede-${s.slug}` })),
+        subOrganization: { "@id": `${SITE.url}/#clinica-aguachica` },
       },
-      ...LISTA_SEDES.map((s) => ({
+      {
         "@type": "MedicalClinic",
-        "@id": `${SITE.url}/#sede-${s.slug}`,
-        name: `${SITE.nombre} · ${s.nombre}`,
-        url: `${SITE.url}/#sedes`,
-        image: `${SITE.url}${s.imagen.src}`,
+        "@id": `${SITE.url}/#clinica-aguachica`,
+        name: SITE.nombre,
+        url: `${SITE.url}/#ubicacion`,
+        image: `${SITE.url}${SEDE.imagen.src}`,
         telephone: SITE.telefonoInternacional,
         medicalSpecialty: ["PlasticSurgery"],
         isAcceptingNewPatients: true,
         address: {
           "@type": "PostalAddress",
-          streetAddress: s.direccion,
-          addressLocality: s.nombre,
-          addressRegion: s.departamento,
+          streetAddress: SEDE.direccion,
+          addressLocality: SEDE.nombre,
+          addressRegion: SEDE.departamento,
           addressCountry: "CO",
         },
-        geo: { "@type": "GeoCoordinates", latitude: s.coordenadas.lat, longitude: s.coordenadas.lng },
+        geo: { "@type": "GeoCoordinates", latitude: SEDE.coordenadas.lat, longitude: SEDE.coordenadas.lng },
         openingHoursSpecification: horario,
         parentOrganization: { "@id": `${SITE.url}/#organizacion` },
-      })),
+      },
       {
         "@type": "WebSite",
         "@id": `${SITE.url}/#sitio`,

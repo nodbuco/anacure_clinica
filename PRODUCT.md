@@ -12,7 +12,7 @@ La misma base del sitio hermano del spa (`../ana-cure-spa-web`), por indicación
 
 ## Users
 
-- **Paciente potencial** (mayoritariamente mujeres adultas de Aguachica, El Banco y municipios cercanos del Cesar y Magdalena) que está considerando una cirugía plástica o un procedimiento estético. Llega casi siempre desde Instagram o el sitio del spa, en el celular. Su trabajo: entender qué se hace aquí, convencerse de que es seguro y serio, y pedir una valoración sin compromiso.
+- **Paciente potencial** (mayoritariamente mujeres adultas de Aguachica y municipios cercanos del Cesar y Magdalena, El Banco incluido; todas viajan a Aguachica para operarse) que está considerando una cirugía plástica o un procedimiento estético. Llega casi siempre desde Instagram o el sitio del spa, en el celular. Su trabajo: entender qué se hace aquí, convencerse de que es seguro y serio, y pedir una valoración sin compromiso.
 - **Paciente del spa** que ya confía en Ana Cure y busca el paso quirúrgico.
 - **Docentes afiliados a FOMAG**, por el convenio vigente.
 
@@ -28,7 +28,7 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 
 ## Operating Context
 
-- Dos sedes: **Aguachica (Cesar)**, Cra 33 # 3-27, primer piso, en la misma dirección que el spa; **El Banco (Magdalena)**, Cra 10 # 3-84. En El Banco hay casos documentados (blefaroplastia, 2025); no está confirmado si allí se opera o solo se valora.
+- **Una sola sede: Aguachica (Cesar)**, Cra 33 # 3-27, primer piso, en el mismo edificio del spa. Confirmado por el usuario el 21 oct 2026: «la clínica de cirugías solo está en Aguachica, no en El Banco». En El Banco solo está el spa; el sitio de la clínica no lo menciona como sede. La valoración es presencial en Aguachica o virtual.
 - Horario: lunes a viernes 7:30 a. m. – 6:00 p. m.; sábados 8:00 a. m. – 3:00 p. m.; domingos y festivos cerrado.
 - WhatsApp oficial de la clínica: **318 701 9075**.
 - Instagram: `@clinicaanacure` (poco activo); el tráfico real llega desde `@anacure_spa`.
@@ -42,7 +42,7 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 - **Antes y después: ocultos tras un toque.** Llegan cerrados (en sobre, sin la foto cargada) con aviso de contenido sensible; la persona decide verlos.
 - **Sin precios ni financiación** en ninguna parte.
 - **Fecha de la próxima jornada:** sin confirmar. Debe poder cambiarse en un solo archivo de datos; mientras no exista, el sitio invita a apartar la valoración para la próxima.
-- Pendientes de Ana (no inventar): número de habilitación sanitaria, si El Banco opera o solo valora, plataforma de la valoración virtual, cupos por jornada, vigencia del convenio FOMAG para 2026, si el **Dr. Carlos Romero** sigue en la clínica (su nombre se lee en un gorro de `cirugia.jpg` y `equipo-quirurgico.jpg`; esas fotos no se usan hasta confirmarlo, decisión del 21 oct 2026) y si «cirujanos plásticos» va en plural (mientras tanto, en singular).
+- Pendientes de Ana (no inventar): número de habilitación sanitaria, plataforma de la valoración virtual, cupos por jornada, vigencia del convenio FOMAG para 2026, si el **Dr. Carlos Romero** sigue en la clínica (su nombre se lee en un gorro de `cirugia.jpg` y `equipo-quirurgico.jpg`; esas fotos no se usan hasta confirmarlo, decisión del 21 oct 2026) y si «cirujanos plásticos» va en plural (mientras tanto, en singular).
 - Regulación colombiana de publicidad en salud: sin promesas de resultado, aviso de que los resultados varían, procedimientos solo para mayores de edad.
 
 ## Brand Commitments
@@ -51,7 +51,7 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 - Paleta del kit: gris carbón `#5E5C5C`, oro claro `#F3C989`, oro medio `#D8A863`, oro oscuro `#B68039`, oro profundo `#A96922`.
 - Tipografía del kit: titulares en Helvetica Neue Light o, en web, **Inter Light**; texto en Inter Light, Regular y SemiBold.
 - Pedido explícito del usuario (1 oct 2026): diseño **muy limpio y premium en PC y celular**, **transiciones que jueguen con el scroll**, **contenedores con bordes curvos suaves** y **un video sutil de fondo en el header**.
-- Rediseño del 21 oct 2026: la primera versión «quedó muy Apple»; el usuario pidió un diseño **más original que mantenga lo premium**, más limpio y visual, sin información repetida. Eligió la dirección **papelería clínica** (tarjeta de valoración, fichero, sobre de resultados, tarjetas de presentación) y pidió **un solo botón de acción en el encabezado** y el titular **«Cirugía plástica en Aguachica»**, bien presentado. Apple deja de ser referencia.
+- Rediseño del 21 oct 2026: la primera versión «quedó muy Apple»; el usuario pidió un diseño **más original que mantenga lo premium**, más limpio y visual, sin información repetida. Eligió la dirección **papelería clínica** (tarjeta de valoración, fichero, sobre de resultados, tarjetas de presentación) y pidió **un solo botón de acción en el encabezado** y el titular **«Cirugía plástica en Aguachica»**, bien presentado. Apple deja de ser referencia. Después pidió que la página sea **más visual y muestre los procedimientos**: cada procedimiento lleva su **lámina de marcaje** (el esquema que el cirujano dibuja antes de operar), dibujada para el sitio, sin fotos de pacientes a la vista.
 - Voz: tuteo, cálida y segura, pocas palabras; cada dato una sola vez (preferencia de Diego en los documentos para este cliente).
 - Al reutilizar textos de Instagram, cambiar `@anacureclinica` (cuenta muerta) por `@clinicaanacure`.
 

@@ -15,15 +15,26 @@ interface Props {
   className?: string;
   children?: ReactNode;
   onClick?: () => void;
+  /** Enlace de texto, sin forma de botón (el oro queda para el llamado principal). */
+  simple?: boolean;
 }
 
 /** Lleva al formulario de valoración. Es el llamado principal de todo el sitio. */
-export function CtaValoracion({ ubicacion, procedimiento, variante = "estampado", tamano = "lg", className, children = "Agenda tu valoración gratuita", onClick }: Props) {
+export function CtaValoracion({
+  ubicacion,
+  procedimiento,
+  variante = "estampado",
+  tamano = "lg",
+  className,
+  children = "Agenda tu valoración gratuita",
+  onClick,
+  simple,
+}: Props) {
   const href = procedimiento ? `/valoracion?procedimiento=${procedimiento}` : "/valoracion";
   return (
     <Link
       href={href}
-      className={clasesBoton(variante, tamano, className)}
+      className={simple ? className : clasesBoton(variante, tamano, className)}
       onClick={() => {
         track("cta_valoracion", { ubicacion, procedimiento });
         onClick?.();

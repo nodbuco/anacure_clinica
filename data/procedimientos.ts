@@ -142,7 +142,7 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     zona: "rostro",
     corto: "Retira el exceso de piel del párpado y abre la mirada.",
     resumen:
-      "Blefaroplastia superior en Aguachica y El Banco con cirujano plástico: retira el exceso de piel del párpado para una mirada más descansada.",
+      "Blefaroplastia superior en Aguachica con cirujano plástico: retira el exceso de piel del párpado para una mirada más descansada.",
     queEs: [
       "Se retira el exceso de piel del párpado superior y, cuando hace falta, una pequeña bolsa de grasa.",
       "La cicatriz queda escondida en el pliegue natural del párpado y la mirada se ve más abierta y descansada.",

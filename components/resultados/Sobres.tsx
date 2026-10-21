@@ -88,7 +88,7 @@ export function Sobres({ casos }: { casos: Caso[] }) {
                         <span className="absolute inset-0 block bg-[#DEDAD3] [clip-path:polygon(0_100%,50%_44%,100%_100%)]" />
                       </span>
                       <span className="absolute inset-x-0 bottom-[12%] flex justify-center">
-                        <span className="sello text-[0.56rem] [--tinta-sello:#6B4113] sm:text-[0.72rem]">Contenido sensible</span>
+                        <span className="sello text-[0.56rem] tracking-[0.07em] [--tinta-sello:#6B4113] sm:text-[0.72rem] sm:tracking-[0.12em]">Contenido sensible</span>
                       </span>
                     </span>
                     <span aria-hidden="true" className="sobre-solapa absolute inset-0 block">

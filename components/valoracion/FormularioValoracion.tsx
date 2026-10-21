@@ -4,15 +4,16 @@ import { type FormEvent, useId, useRef, useState } from "react";
 import { IconoCheck, IconoWhatsApp } from "@/components/ui/Icons";
 import { clasesBoton } from "@/components/ui/Boton";
 import { PROCEDIMIENTOS, ZONAS, procedimientoPorSlug } from "@/data/procedimientos";
-import { LISTA_SEDES } from "@/data/sedes";
+import { SEDE } from "@/data/sedes";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { mensajeValoracion, urlWhatsApp } from "@/lib/whatsapp";
 
-const SIN_DEFINIR = "aun-no-se";
+/** Valor de «Aún no lo sé»; también llega por la URL (?procedimiento=aun-no-se) desde el fichero del inicio. */
+export const SIN_DEFINIR = "aun-no-se";
 
 const MODALIDADES = [
-  ...LISTA_SEDES.map((s) => ({ id: s.slug, nombre: `Presencial en ${s.nombre}`, detalle: `${s.direccion}, ${s.departamento}` })),
+  { id: "presencial", nombre: `Presencial en ${SEDE.nombre}`, detalle: `${SEDE.direccion}, ${SEDE.departamento}` },
   { id: "virtual", nombre: "Virtual", detalle: "Por videollamada, desde tu casa" },
 ];
 
@@ -164,7 +165,7 @@ export function FormularioValoracion({ fecha, procedimientoInicial = "" }: { fec
                 {errores.modalidad}
               </p>
             )}
-            <div className="mt-5 grid gap-2.5 sm:grid-cols-3">
+            <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {MODALIDADES.map((m) => (
                 <Opcion
                   key={m.id}

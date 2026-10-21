@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { PlausibleScript } from "@/components/analytics/PlausibleScript";
 import { Cabecera } from "@/components/layout/Cabecera";
 import { Pie } from "@/components/layout/Pie";
+import { DibujarLaminas } from "@/components/procedimientos/DibujarLaminas";
 import { SITE } from "@/data/site";
 import { jsonLdClinica, jsonLdSeguro } from "@/lib/seo";
 import "./globals.css";
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Cabecera />
         <div id="contenido">{children}</div>
         <Pie />
+        <DibujarLaminas />
         <PlausibleScript />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSeguro(jsonLdClinica()) }} />
       </body>
