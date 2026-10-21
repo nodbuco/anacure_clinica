@@ -62,21 +62,11 @@ export function IconoReproducir(props: P) {
   );
 }
 
-/** Chevron hacia la derecha: acompaña los enlaces de texto («Ver más ›»). */
-export function IconoChevron(props: P) {
+/** Flecha larga: acompaña los enlaces subrayados. */
+export function IconoFlecha(props: P) {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...trazo} strokeWidth={2} {...props}>
-      <path d="M9.5 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-/** Luz: el interruptor de las placas del negatoscopio. */
-export function IconoLuz(props: P) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...trazo} {...props}>
-      <circle cx="12" cy="12" r="3.75" />
-      <path d="M12 2.75v2.5M12 18.75v2.5M2.75 12h2.5M18.75 12h2.5M5.46 5.46l1.77 1.77M16.77 16.77l1.77 1.77M5.46 18.54l1.77-1.77M16.77 7.23l1.77-1.77" />
+    <svg viewBox="0 0 28 24" aria-hidden="true" {...trazo} strokeWidth={1.5} {...props}>
+      <path d="M3 12h21M18 6l6 6-6 6" />
     </svg>
   );
 }

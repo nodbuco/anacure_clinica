@@ -7,23 +7,23 @@ related_targets: []
 
 # Inicio · Clínica Estética Ana Cure
 
-Modo: **Persuade.** Público: paciente potencial en el celular, llega desde Instagram o el sitio del spa. Acción: pedir la valoración gratuita para la próxima jornada (formulario → WhatsApp 318 701 9075). Prueba: quirófano real en video, equipo con nombre, antes/después reales tras un toque, recuperación con cámara hiperbárica en el mismo edificio. Restricciones: sin precios, sin promesas de resultado, mayores de edad, pedido del usuario (estilo Apple Mac Studio, bordes curvos suaves, scroll que transforma, video sutil en el hero).
+Modo: **Persuade.** Público: paciente potencial en el celular, llega desde Instagram o el sitio del spa. Acción: pedir la valoración gratuita para la próxima jornada (formulario → WhatsApp 318 701 9075). Prueba: quirófano real en video, recorrido valoración → jornada → recuperación con fotos propias, antes/después reales tras un toque, equipo con nombre. Restricciones: sin precios, sin promesas de resultado, mayores de edad, cada dato una sola vez, un solo botón de acción en el encabezado (pedido del 21 oct 2026), sin las fotos con el gorro del Dr. Carlos Romero hasta que Ana confirme.
 
 ## Direction contract
 
-THESIS: Una clínica que se ve a la luz. Todo aparece iluminado desde atrás, como en el negatoscopio donde el cirujano lee cada caso: el quirófano, el equipo y los resultados se encienden al llegar. Rechaza la clínica de stock (paciente sonriente, verde azulado, carrusel de antes y después a la vista).
+THESIS: La clínica contada con su propia papelería: la tarjeta de valoración, la tarjeta de controles, el sobre de resultados y la tarjeta de cada médico. Rechaza la página de producto de Apple (titulares gigantes centrados, mosaicos de 36 px, escenas fijas) y la clínica de stock (paciente sonriente, verde azulado, carrusel de antes y después).
 
-OWN-WORLD: Tres tintas y nada más: grafito cálido derivado del gris carbón del kit, oro del logo (#F3C989→#A96922) como única luz, blanco perla de difusor. Paneles con radio de 28 px: difusores lechosos sobre perla y paneles de grafito sobre noche; profundidad solo por superposición, nunca por sombra. Inter Light grande y apretada para titulares, Inter para texto. Botón píldora dorado. WhatsApp también en grafito y oro.
+OWN-WORLD: Cartulina gris carbón del kit (#5E5C5C) como suelo de la página, tarjetas de algodón blanco (#F6F5F1) troqueladas con un solo radio de 14 px, perforación con muescas, logo y botones estampados en oro del kit, tinta de sello en oro de texto. Inter Light del kit, alineada a la izquierda y sin punto final; rótulos de campo en Inter SemiBold en mayúscula espaciada dentro de las tarjetas. Sombras de contacto reales de papel. Una pieza por pantalla; rejilla de formulario impreso.
 
-STORY: La visitante ve su quirófano real, entiende que se opera por jornadas con cirujano plástico y que se recupera en el mismo edificio, enciende los resultados que quiera ver, conoce a los médicos y pide su valoración con procedimiento, sede y modalidad.
+STORY: La visitante ve el quirófano real y lee qué es y dónde; elige su procedimiento en el fichero; sigue la tarjeta de controles de la valoración a la recuperación en el spa; abre los sobres que quiera; conoce a los médicos por su tarjeta; aparta su valoración.
 
-FIRST VIEWPORT: Video a sangre de las lámparas del quirófano, graduado en grafito y oro, con velo oscuro. Al centro, titular grande en Inter Light blanco; debajo una línea sobre valoración gratuita y jornadas; píldora dorada «Agenda tu valoración» y enlace «Ver procedimientos». Barra local fina arriba con logo para fondo oscuro. Pausa del video abajo a la derecha. Al bajar, el video se recoge en un panel de esquinas curvas y la lámpara se apaga.
+FIRST VIEWPORT: Video del quirófano a sangre, graduado cálido, con velo desde la izquierda. Abajo a la izquierda, sobre la rejilla: titular «Cirugía plástica en Aguachica» en dos renglones, una bajada y el único botón de oro «Agenda tu valoración gratuita». A la derecha, la tarjeta de valoración inclinada con modalidad, sedes y la próxima jornada estampada con sello. Barra tipo membrete arriba, sin botón mientras el del hero se ve. Abajo asoman las pestañas del fichero.
 
-FORM: Negatoscopio (caja de luz clínica), cuarta de mi lista ordenada; semilla 1004b3e9. Firmas: palabras que se encienden con el scroll, línea dorada valoración → jornada → recuperación dibujada con el scroll, resultados con interruptor de dos estados, luz que sigue al puntero en los difusores (PC).
+FORM: Papelería clínica (tarjeta de cita, sobre de resultados, tarjeta de presentación), sexta de mi lista ordenada; semilla b0b11d04. Firmas: el sello de la próxima jornada que se estampa al cargar, la tarjeta de controles que se perfora paso a paso con el scroll, los sobres de resultados que se abren con un toque, el oro estampado que brilla al desplazarse. Elevaciones: una pieza por pantalla con el papel vacío (ikebana), un solo radio (pliegue curvo), rejilla de formulario (Kraftwerk), la fecha de la jornada a escala de cartel (cartel de boxeo), material real hecho en código (ASCII), un solo gesto para revelar (teletexto).
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Pendientes
 
 - Fecha de la próxima jornada (dato editable en `data/jornada.ts`).
-- Habilitación sanitaria, si El Banco opera o solo valora, plataforma de la valoración virtual.
+- Con Ana: si el Dr. Carlos Romero sigue en la clínica (sale en `cirugia.jpg` y `equipo-quirurgico.jpg`), «cirujanos plásticos» en plural, habilitación sanitaria, si El Banco opera o solo valora, plataforma de la valoración virtual, vigencia FOMAG 2026.

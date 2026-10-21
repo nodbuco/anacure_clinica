@@ -22,7 +22,7 @@ export const SEDES: Record<SedeSlug, Sede> = {
     nombre: "Aguachica",
     departamento: "Cesar",
     direccion: "Cra 33 # 3-27",
-    referencia: "Primer piso, en el mismo edificio del spa",
+    referencia: "Primer piso, edificio de Ana Cure Estética & Spa",
     coordenadas: { lat: 8.311602, lng: -73.6033209 },
     imagen: { src: "/media/sedes/aguachica.jpg", alt: "Fachada de la Clínica Estética Ana Cure en Aguachica" },
   },

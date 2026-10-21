@@ -1,41 +1,31 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { IconoChevron } from "@/components/ui/Icons";
+import { IconoFlecha } from "@/components/ui/Icons";
 import { cn } from "@/lib/cn";
 
-export type VarianteBoton = "oro" | "contorno-claro" | "contorno-oscuro";
+export type VarianteBoton = "estampado" | "linea";
 
 const VARIANTES: Record<VarianteBoton, string> = {
-  /* Principal: el pan de oro del logo, texto grafito (8,6:1) */
-  oro: "oro-pan text-noche",
-  "contorno-claro": "border border-perla/30 text-perla hover:border-perla/70 hover:bg-perla/5",
-  "contorno-oscuro": "border border-tinta/20 text-tinta hover:border-tinta/60",
+  /* Principal: estampado en el oro del logo, rótulo en tinta (8:1) */
+  estampado: "estampado",
+  /* Secundario: filete del color del texto (blanco sobre carbón, tinta sobre algodón) */
+  linea: "boton-linea",
 };
 
-const TAMANOS = {
-  md: "min-h-11 px-5 text-[0.95rem]",
-  lg: "min-h-13 px-7 text-base",
-} as const;
-
-export function clasesBoton(variante: VarianteBoton = "oro", tamano: keyof typeof TAMANOS = "md", className?: string) {
-  return cn(
-    "pulsable inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill font-medium tracking-[-0.01em]",
-    VARIANTES[variante],
-    TAMANOS[tamano],
-    className,
-  );
+export function clasesBoton(variante: VarianteBoton = "estampado", tamano: "md" | "lg" = "lg", className?: string) {
+  return cn("boton", VARIANTES[variante], tamano === "md" && "boton-chico", className);
 }
 
 interface BotonProps {
   href: string;
   children: ReactNode;
   variante?: VarianteBoton;
-  tamano?: keyof typeof TAMANOS;
+  tamano?: "md" | "lg";
   className?: string;
   externo?: boolean;
 }
 
-/** Botón píldora que navega. Los externos (WhatsApp, Maps) abren en otra pestaña. */
+/** Botón que navega. Los externos (WhatsApp, Maps) abren en otra pestaña. */
 export function Boton({ href, children, variante, tamano, className, externo }: BotonProps) {
   const clases = clasesBoton(variante, tamano, className);
   if (externo) {
@@ -52,36 +42,30 @@ export function Boton({ href, children, variante, tamano, className, externo }: 
   );
 }
 
-interface EnlaceFlechaProps {
+interface EnlaceProps {
   href: string;
   children: ReactNode;
-  tono?: "claro" | "oscuro";
   className?: string;
   externo?: boolean;
 }
 
-/** Enlace de texto con chevron, al estilo de las páginas de producto («Ver más ›»). */
-export function EnlaceFlecha({ href, children, tono = "oscuro", className, externo }: EnlaceFlechaProps) {
-  const clases = cn(
-    "group inline-flex items-center gap-1 rounded-sm font-medium transition-colors duration-200 hover:underline",
-    tono === "claro" ? "text-oro-claro" : "text-oro-texto",
-    className,
-  );
+/** Enlace secundario: rótulo subrayado con flecha larga. Toma el color del texto que lo rodea. */
+export function Enlace({ href, children, className, externo }: EnlaceProps) {
   const contenido = (
     <>
       {children}
-      <IconoChevron className="size-[1.05em] translate-y-px transition-transform duration-300 ease-luz group-hover:translate-x-0.5" />
+      <IconoFlecha className="h-3.5 w-4.5 shrink-0" />
     </>
   );
   if (externo) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={clases}>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cn("enlace", className)}>
         {contenido}
       </a>
     );
   }
   return (
-    <Link href={href} className={clases}>
+    <Link href={href} className={cn("enlace", className)}>
       {contenido}
     </Link>
   );

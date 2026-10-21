@@ -24,7 +24,14 @@ const ERRORES: Record<Campo, string> = {
   nombre: "Escribe tu nombre para saber cómo llamarte.",
 };
 
-function Opcion({ name, value, titulo, detalle, checked, onChange }: {
+function Opcion({
+  name,
+  value,
+  titulo,
+  detalle,
+  checked,
+  onChange,
+}: {
   name: string;
   value: string;
   titulo: string;
@@ -33,21 +40,10 @@ function Opcion({ name, value, titulo, detalle, checked, onChange }: {
   onChange: (v: string) => void;
 }) {
   return (
-    <label className="opcion flex cursor-pointer items-start gap-3 rounded-2xl border border-linea bg-blanco/60 p-4">
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        checked={checked}
-        onChange={() => onChange(value)}
-        className="peer sr-only"
-      />
-      <span
-        aria-hidden="true"
-        className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full border border-carbon/40 text-blanco peer-checked:border-tinta peer-checked:bg-tinta"
-      >
-        <IconoCheck className="size-3.5" />
-      </span>
+    <label className="casilla flex cursor-pointer items-start gap-3 rounded-[2px] border border-linea bg-algodon p-4">
+      <input type="radio" name={name} value={value} checked={checked} onChange={() => onChange(value)} className="peer sr-only" />
+      {/* Opción excluyente: marca redonda (la casilla cuadrada queda para FOMAG, que no excluye) */}
+      <span aria-hidden="true" className="casilla-punto mt-0.5 inline-flex size-5 shrink-0 rounded-full border border-tinta/45" />
       <span>
         <span className="block text-[1rem] leading-snug text-tinta">{titulo}</span>
         {detalle && <span className="mt-0.5 block text-[0.85rem] leading-snug text-carbon">{detalle}</span>}
@@ -112,178 +108,189 @@ export function FormularioValoracion({ fecha, procedimientoInicial = "" }: { fec
   ];
 
   return (
-    <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-      <form ref={formulario} id={`${id}-formulario`} noValidate onSubmit={enviar} className="space-y-12 lg:col-span-7">
-        <fieldset aria-describedby={errores.procedimiento ? `${id}-e-procedimiento` : undefined}>
-          <legend
-            tabIndex={-1}
-            data-campo="procedimiento"
-            className="text-tarjeta font-light text-tinta outline-none"
-          >
-            ¿Qué te interesa?
-          </legend>
-          {errores.procedimiento && (
-            <p id={`${id}-e-procedimiento`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
-              {errores.procedimiento}
-            </p>
-          )}
-          <div className="mt-5 space-y-6">
-            {ZONAS.map((z) => (
-              <div key={z.slug}>
-                <p className="text-[0.9rem] font-medium text-carbon">{z.nombre}</p>
-                <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
-                  {PROCEDIMIENTOS.filter((p) => p.zona === z.slug).map((p) => (
-                    <Opcion
-                      key={p.slug}
-                      name="procedimiento"
-                      value={p.slug}
-                      titulo={p.nombre}
-                      checked={procedimiento === p.slug}
-                      onChange={(v) => {
-                        setProcedimiento(v);
-                        limpiar("procedimiento");
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-            <Opcion
-              name="procedimiento"
-              value={SIN_DEFINIR}
-              titulo="Aún no lo sé"
-              detalle="Te orientamos en la valoración"
-              checked={procedimiento === SIN_DEFINIR}
-              onChange={(v) => {
-                setProcedimiento(v);
-                limpiar("procedimiento");
-              }}
-            />
-          </div>
-        </fieldset>
-
-        <fieldset aria-describedby={errores.modalidad ? `${id}-e-modalidad` : undefined}>
-          <legend tabIndex={-1} data-campo="modalidad" className="text-tarjeta font-light text-tinta outline-none">
-            ¿Cómo prefieres tu valoración?
-          </legend>
-          {errores.modalidad && (
-            <p id={`${id}-e-modalidad`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
-              {errores.modalidad}
-            </p>
-          )}
-          <div className="mt-5 grid gap-2.5 sm:grid-cols-3">
-            {MODALIDADES.map((m) => (
-              <Opcion
-                key={m.id}
-                name="modalidad"
-                value={m.id}
-                titulo={m.nombre}
-                detalle={m.detalle}
-                checked={modalidad === m.id}
-                onChange={(v) => {
-                  setModalidad(v);
-                  limpiar("modalidad");
-                }}
-              />
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className="space-y-5">
-          <legend className="text-tarjeta font-light text-tinta">Tus datos</legend>
-          <div>
-            <label htmlFor={`${id}-nombre`} className="block text-[0.9rem] font-medium text-tinta">
-              Nombre y apellido
-            </label>
-            <input
-              id={`${id}-nombre`}
-              data-campo="nombre"
-              type="text"
-              autoComplete="name"
-              value={nombre}
-              maxLength={80}
-              onChange={(e) => {
-                setNombre(e.target.value);
-                limpiar("nombre");
-              }}
-              aria-invalid={errores.nombre ? true : undefined}
-              aria-describedby={errores.nombre ? `${id}-e-nombre` : undefined}
-              placeholder="María Fernanda Pérez"
-              className={cn(
-                "mt-2 block min-h-13 w-full rounded-2xl border bg-blanco px-4 text-[1.0625rem] text-tinta placeholder:text-carbon/60 focus:border-tinta focus:outline-none focus-visible:outline-2 focus-visible:outline-oro",
-                errores.nombre ? "border-alerta" : "border-linea",
-              )}
-            />
-            {errores.nombre && (
-              <p id={`${id}-e-nombre`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
-                {errores.nombre}
+    <div className="sombra-papel">
+      <div className="papel grid rounded-troquel lg:con-talon lg:grid-cols-[minmax(0,1fr)_var(--talon)] lg:[--talon:23rem]">
+        <form ref={formulario} id={`${id}-formulario`} noValidate onSubmit={enviar} className="space-y-12 px-5 py-8 sm:px-8 lg:px-12 lg:py-12">
+          <fieldset aria-describedby={errores.procedimiento ? `${id}-e-procedimiento` : undefined}>
+            <legend tabIndex={-1} data-campo="procedimiento" className="text-subtitulo font-light outline-none">
+              ¿Qué te interesa?
+            </legend>
+            {errores.procedimiento && (
+              <p id={`${id}-e-procedimiento`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
+                {errores.procedimiento}
               </p>
             )}
-          </div>
+            <div className="mt-5 space-y-6">
+              {ZONAS.map((z) => (
+                <div key={z.slug}>
+                  <p className="rotulo text-oro-texto">{z.nombre}</p>
+                  <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
+                    {PROCEDIMIENTOS.filter((p) => p.zona === z.slug).map((p) => (
+                      <Opcion
+                        key={p.slug}
+                        name="procedimiento"
+                        value={p.slug}
+                        titulo={p.nombre}
+                        checked={procedimiento === p.slug}
+                        onChange={(v) => {
+                          setProcedimiento(v);
+                          limpiar("procedimiento");
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <Opcion
+                name="procedimiento"
+                value={SIN_DEFINIR}
+                titulo="Aún no lo sé"
+                detalle="Te orientamos en la valoración"
+                checked={procedimiento === SIN_DEFINIR}
+                onChange={(v) => {
+                  setProcedimiento(v);
+                  limpiar("procedimiento");
+                }}
+              />
+            </div>
+          </fieldset>
 
-          <label className="opcion flex cursor-pointer items-center gap-3 rounded-2xl border border-linea bg-blanco/60 p-4">
-            <input type="checkbox" checked={fomag} onChange={(e) => setFomag(e.target.checked)} className="peer sr-only" />
-            <span
-              aria-hidden="true"
-              className="inline-flex size-5 shrink-0 items-center justify-center rounded-md border border-carbon/40 text-blanco peer-checked:border-tinta peer-checked:bg-tinta"
-            >
-              <IconoCheck className="size-3.5" />
-            </span>
-            <span className="text-[1rem] text-tinta">Soy docente afiliado(a) a FOMAG</span>
-          </label>
+          <fieldset aria-describedby={errores.modalidad ? `${id}-e-modalidad` : undefined}>
+            <legend tabIndex={-1} data-campo="modalidad" className="text-subtitulo font-light outline-none">
+              ¿Cómo prefieres tu valoración?
+            </legend>
+            {errores.modalidad && (
+              <p id={`${id}-e-modalidad`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
+                {errores.modalidad}
+              </p>
+            )}
+            <div className="mt-5 grid gap-2.5 sm:grid-cols-3">
+              {MODALIDADES.map((m) => (
+                <Opcion
+                  key={m.id}
+                  name="modalidad"
+                  value={m.id}
+                  titulo={m.nombre}
+                  detalle={m.detalle}
+                  checked={modalidad === m.id}
+                  onChange={(v) => {
+                    setModalidad(v);
+                    limpiar("modalidad");
+                  }}
+                />
+              ))}
+            </div>
+          </fieldset>
 
-          <div>
-            <label htmlFor={`${id}-comentario`} className="block text-[0.9rem] font-medium text-tinta">
-              ¿Algo que quieras contarnos? <span className="font-normal text-carbon">(opcional)</span>
+          <fieldset className="space-y-5">
+            <legend className="text-subtitulo font-light">Tus datos</legend>
+            <div>
+              <label htmlFor={`${id}-nombre`} className="rotulo block text-carbon">
+                Nombre y apellido
+              </label>
+              <input
+                id={`${id}-nombre`}
+                data-campo="nombre"
+                type="text"
+                autoComplete="name"
+                value={nombre}
+                maxLength={80}
+                onChange={(e) => {
+                  setNombre(e.target.value);
+                  limpiar("nombre");
+                }}
+                aria-invalid={errores.nombre ? true : undefined}
+                aria-describedby={errores.nombre ? `${id}-e-nombre` : undefined}
+                placeholder="María Fernanda Pérez"
+                className={cn(
+                  "mt-2 block min-h-13 w-full rounded-[2px] border bg-blanco px-4 text-[1.0625rem] text-tinta placeholder:text-carbon/70 focus:border-tinta focus:outline-none focus-visible:outline-2 focus-visible:outline-oro-texto",
+                  errores.nombre ? "border-alerta" : "border-linea",
+                )}
+              />
+              {errores.nombre && (
+                <p id={`${id}-e-nombre`} role="alert" className="mt-2 text-[0.9rem] font-medium text-alerta">
+                  {errores.nombre}
+                </p>
+              )}
+            </div>
+
+            <label className="casilla flex cursor-pointer items-center gap-3 rounded-[2px] border border-linea bg-algodon p-4">
+              <input type="checkbox" checked={fomag} onChange={(e) => setFomag(e.target.checked)} className="peer sr-only" />
+              <span
+                aria-hidden="true"
+                className="casilla-marca inline-flex size-5 shrink-0 items-center justify-center rounded-[2px] border border-tinta/45 text-transparent"
+              >
+                <IconoCheck className="size-3.5" />
+              </span>
+              <span className="text-[1rem] text-tinta">Soy docente afiliado(a) a FOMAG</span>
             </label>
-            <textarea
-              id={`${id}-comentario`}
-              value={comentario}
-              onChange={(e) => setComentario(e.target.value)}
-              rows={3}
-              maxLength={400}
-              placeholder="Por ejemplo, la zona que te gustaría tratar o tus dudas."
-              className="mt-2 block w-full resize-y rounded-2xl border border-linea bg-blanco px-4 py-3 text-[1.0625rem] text-tinta placeholder:text-carbon/60 focus:border-tinta focus:outline-none focus-visible:outline-2 focus-visible:outline-oro"
-            />
-          </div>
-        </fieldset>
-      </form>
 
-      <aside aria-label="Resumen de tu valoración" className="lg:col-span-5">
-        <div className="tema-oscuro rounded-panel-lg bg-noche p-7 text-perla sm:p-9 lg:sticky lg:top-24">
-          <h2 className="text-tarjeta font-light">Tu valoración</h2>
-          <dl className="mt-6 divide-y divide-humo border-y border-humo">
-            {resumen.map((r) => (
-              <div key={r.etiqueta} className="flex items-baseline justify-between gap-6 py-3.5">
-                <dt className="text-[0.9rem] text-niebla">{r.etiqueta}</dt>
-                <dd className={cn("text-right text-[0.98rem]", r.valor ? "text-perla" : "text-niebla")}>{r.valor ?? "Sin elegir"}</dd>
+            <div>
+              <label htmlFor={`${id}-comentario`} className="rotulo block text-carbon">
+                ¿Algo que quieras contarnos? <span className="normal-case tracking-normal font-normal">(opcional)</span>
+              </label>
+              <textarea
+                id={`${id}-comentario`}
+                value={comentario}
+                onChange={(e) => setComentario(e.target.value)}
+                rows={3}
+                maxLength={400}
+                placeholder="Por ejemplo, la zona que te gustaría tratar o tus dudas."
+                className="mt-2 block w-full resize-y rounded-[2px] border border-linea bg-blanco px-4 py-3 text-[1.0625rem] text-tinta placeholder:text-carbon/70 focus:border-tinta focus:outline-none focus-visible:outline-2 focus-visible:outline-oro-texto"
+              />
+            </div>
+          </fieldset>
+        </form>
+
+        <aside
+          aria-label="Resumen de tu valoración"
+          className="border-t border-dashed border-tinta/25 bg-algodon-2 px-5 py-8 sm:px-8 lg:linea-corte lg:rounded-r-troquel lg:border-t-0 lg:px-9 lg:py-12"
+        >
+          <div className="lg:sticky lg:top-28">
+            <div className="flex items-center gap-2.5">
+              {/* eslint-disable-next-line @next/next/no-img-element -- isotipo del kit en SVG, sin modificar */}
+              <img src="/brand/isotipo-color.svg" alt="" width={213} height={213} className="size-7 shrink-0" />
+              <h2 className="rotulo text-oro-texto">Tu valoración</h2>
+            </div>
+            <dl className="mt-5 divide-y divide-linea border-y border-linea">
+              {resumen.map((r) => (
+                <div key={r.etiqueta} className="flex items-baseline justify-between gap-6 py-3.5">
+                  <dt className="rotulo text-carbon">{r.etiqueta}</dt>
+                  <dd className={cn("text-right text-[0.98rem]", !r.valor && "text-carbon")}>{r.valor ?? "Sin elegir"}</dd>
+                </div>
+              ))}
+              {fecha && (
+                <div className="flex items-baseline justify-between gap-6 py-3.5">
+                  <dt className="rotulo text-carbon">Próxima jornada</dt>
+                  <dd className="text-right text-[0.98rem] first-letter:uppercase">{fecha}</dd>
+                </div>
+              )}
+            </dl>
+
+            <button type="submit" form={`${id}-formulario`} className={clasesBoton("estampado", "lg", "mt-7 w-full")}>
+              <IconoWhatsApp className="size-5" />
+              Continuar en WhatsApp
+            </button>
+            <p className="mt-4 text-[0.9rem] leading-relaxed text-carbon">
+              Se abre WhatsApp con tu mensaje listo para enviar. Esta página no guarda tus datos.
+            </p>
+
+            {enviado && (
+              <div role="status" className="mt-6 border border-tinta/15 bg-algodon p-5">
+                <p>Listo. Envía el mensaje en WhatsApp y te respondemos para darte la cita.</p>
+                <a
+                  href={enviado}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex min-h-11 items-center font-medium text-oro-texto underline underline-offset-4"
+                >
+                  Abrir WhatsApp de nuevo
+                </a>
               </div>
-            ))}
-            <div className="flex items-baseline justify-between gap-6 py-3.5">
-              <dt className="text-[0.9rem] text-niebla">Próxima jornada</dt>
-              <dd className="text-right text-[0.98rem] first-letter:uppercase">{fecha ?? "Por anunciar"}</dd>
-            </div>
-          </dl>
-          <p className="mt-6 text-[1.05rem]">Gratuita</p>
-
-          <button type="submit" form={`${id}-formulario`} className={clasesBoton("oro", "lg", "mt-6 w-full")}>
-            <IconoWhatsApp className="size-5" />
-            Continuar en WhatsApp
-          </button>
-          <p className="mt-4 text-[0.85rem] leading-relaxed text-niebla">
-            Se abre WhatsApp con tu mensaje listo para enviar. Esta página no guarda tus datos.
-          </p>
-
-          {enviado && (
-            <div role="status" className="mt-6 rounded-2xl bg-grafito-2 p-5">
-              <p className="text-perla">Listo. Envía el mensaje en WhatsApp y te respondemos para darte la cita.</p>
-              <a href={enviado} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-[0.95rem] font-medium text-oro-claro hover:underline">
-                Abrir WhatsApp de nuevo
-              </a>
-            </div>
-          )}
-        </div>
-      </aside>
+            )}
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }

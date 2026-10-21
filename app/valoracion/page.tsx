@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { Contenedor } from "@/components/ui/Contenedor";
 import { FormularioDesdeEnlace } from "@/components/valoracion/FormularioDesdeEnlace";
 import { FormularioValoracion } from "@/components/valoracion/FormularioValoracion";
-import { Contenedor } from "@/components/ui/Contenedor";
 import { fechaJornada } from "@/data/jornada";
 
 export const metadata: Metadata = {
@@ -15,15 +15,11 @@ export const metadata: Metadata = {
 export default function ValoracionPage() {
   const fecha = fechaJornada();
   return (
-    <main data-tema="claro" className="bg-perla pb-seccion pt-28 sm:pt-32 lg:pt-40">
+    <main className="bg-carbon pb-seccion pt-24 sm:pt-28 lg:pt-36">
       <Contenedor>
-        <div className="max-w-3xl">
-          <h1 className="text-titulo font-light text-tinta">Agenda tu valoración.</h1>
-          <p className="mt-5 max-w-xl text-entrada text-carbon">
-            Es gratuita. Cuéntanos qué te interesa y cómo prefieres tu cita, y seguimos la conversación por WhatsApp.
-          </p>
-        </div>
-        <div className="mt-12 lg:mt-16">
+        <h1 className="max-w-[14ch] text-titulo font-light">Agenda tu valoración gratuita</h1>
+        <p className="mt-4 max-w-[30rem] text-entrada text-perla">Llena la tarjeta y seguimos la conversación por WhatsApp.</p>
+        <div className="mt-10 lg:mt-14">
           <Suspense fallback={<FormularioValoracion fecha={fecha} />}>
             <FormularioDesdeEnlace fecha={fecha} />
           </Suspense>

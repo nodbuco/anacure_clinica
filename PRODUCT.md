@@ -39,10 +39,10 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 - **Solicitud de valoración: formulario → WhatsApp** (decidido el 1 oct 2026). La persona elige procedimiento, sede y modalidad (presencial o virtual) y se abre el chat del 318 701 9075 con el mensaje escrito. Sin servidor de citas ni correos por ahora.
 - **Catálogo: solo procedimientos vigentes** (mencionados en 2025–2026): liposucción / lipoescultura / lipo láser, transferencia glútea, mamoplastia de aumento con implantes, pexia mamaria sin implantes, alectomía, blefaroplastia superior, armonización de orejas; y como servicios de recuperación: acompañamiento postoperatorio, Ultra Z, cámara hiperbárica y drenaje linfático (estos últimos viven en el spa).
 - **Equipo visible (ampliado):** Dra. Ana Cure (gerente), Dr. Alan Rodríguez (cirujano plástico, el más presente), Dra. Diana García (equipo médico), Dr. Javier de la Rosa (medicina estética facial).
-- **Antes y después: ocultos tras un toque.** Se muestran difuminados con aviso de contenido sensible; la persona decide verlos.
+- **Antes y después: ocultos tras un toque.** Llegan cerrados (en sobre, sin la foto cargada) con aviso de contenido sensible; la persona decide verlos.
 - **Sin precios ni financiación** en ninguna parte.
 - **Fecha de la próxima jornada:** sin confirmar. Debe poder cambiarse en un solo archivo de datos; mientras no exista, el sitio invita a apartar la valoración para la próxima.
-- Pendientes de Ana (no inventar): número de habilitación sanitaria, si El Banco opera o solo valora, plataforma de la valoración virtual, cupos por jornada, vigencia del convenio FOMAG para 2026.
+- Pendientes de Ana (no inventar): número de habilitación sanitaria, si El Banco opera o solo valora, plataforma de la valoración virtual, cupos por jornada, vigencia del convenio FOMAG para 2026, si el **Dr. Carlos Romero** sigue en la clínica (su nombre se lee en un gorro de `cirugia.jpg` y `equipo-quirurgico.jpg`; esas fotos no se usan hasta confirmarlo, decisión del 21 oct 2026) y si «cirujanos plásticos» va en plural (mientras tanto, en singular).
 - Regulación colombiana de publicidad en salud: sin promesas de resultado, aviso de que los resultados varían, procedimientos solo para mayores de edad.
 
 ## Brand Commitments
@@ -50,7 +50,8 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 - Identidad de **Clínica Estética** del kit `../Kit_Identidad_Ana_Cure/02_Clinica_Estetica/`: logos SVG en degradado dorado y gris; **nunca reconstruir el logo con una fuente**.
 - Paleta del kit: gris carbón `#5E5C5C`, oro claro `#F3C989`, oro medio `#D8A863`, oro oscuro `#B68039`, oro profundo `#A96922`.
 - Tipografía del kit: titulares en Helvetica Neue Light o, en web, **Inter Light**; texto en Inter Light, Regular y SemiBold.
-- Pedido explícito del usuario (1 oct 2026): diseño **muy limpio y premium en PC y celular**, **transiciones que jueguen con el scroll**, **contenedores con bordes curvos suaves al estilo de la página Mac Studio de Apple**, y **un video sutil de fondo en el header**.
+- Pedido explícito del usuario (1 oct 2026): diseño **muy limpio y premium en PC y celular**, **transiciones que jueguen con el scroll**, **contenedores con bordes curvos suaves** y **un video sutil de fondo en el header**.
+- Rediseño del 21 oct 2026: la primera versión «quedó muy Apple»; el usuario pidió un diseño **más original que mantenga lo premium**, más limpio y visual, sin información repetida. Eligió la dirección **papelería clínica** (tarjeta de valoración, fichero, sobre de resultados, tarjetas de presentación) y pidió **un solo botón de acción en el encabezado** y el titular **«Cirugía plástica en Aguachica»**, bien presentado. Apple deja de ser referencia.
 - Voz: tuteo, cálida y segura, pocas palabras; cada dato una sola vez (preferencia de Diego en los documentos para este cliente).
 - Al reutilizar textos de Instagram, cambiar `@anacureclinica` (cuenta muerta) por `@clinicaanacure`.
 

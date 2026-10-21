@@ -1,8 +1,7 @@
-import { Negatoscopio, type Placa } from "@/components/resultados/Negatoscopio";
+import { type Caso, Sobres } from "@/components/resultados/Sobres";
 import { Contenedor } from "@/components/ui/Contenedor";
 import { profesional } from "@/data/equipo";
 import type { Resultado } from "@/data/resultados";
-import { desenfoque } from "@/lib/desenfoque";
 
 interface Props {
   resultados: Resultado[];
@@ -10,33 +9,30 @@ interface Props {
   id?: string;
 }
 
-/** Sección oscura de resultados (inicio y páginas de procedimiento). Prepara las vistas borrosas en el build. */
-export async function Resultados({ resultados, titulo = "Resultados reales.", id = "resultados" }: Props) {
+/** Resultados en sobres cerrados (inicio y páginas de procedimiento). */
+export function Resultados({ resultados, titulo = "Resultados", id = "resultados" }: Props) {
   if (resultados.length === 0) return null;
-  const placas: Placa[] = await Promise.all(
-    resultados.map(async (r) => ({
-      id: r.id,
-      titulo: r.titulo,
-      detalle: r.detalle,
-      profesional: r.profesional ? profesional(r.profesional)?.nombre : undefined,
-      imagen: r.imagen,
-      previa: await desenfoque(r.imagen.src),
-    })),
-  );
+  const casos: Caso[] = resultados.map((r) => ({
+    id: r.id,
+    titulo: r.titulo,
+    detalle: r.detalle,
+    profesional: r.profesional ? profesional(r.profesional)?.nombre : undefined,
+    imagen: r.imagen,
+  }));
 
   return (
-    <section id={id} data-tema="oscuro" aria-labelledby={`${id}-titulo`} className="tema-oscuro scroll-mt-14 bg-noche py-seccion text-perla">
+    <section id={id} aria-labelledby={`${id}-titulo`} className="scroll-mt-16 bg-carbon pb-seccion">
       <Contenedor>
-        <div className="max-w-3xl">
-          <h2 id={`${id}-titulo`} className="text-titulo font-light">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-8">
+          <h2 id={`${id}-titulo`} className="text-titulo font-light lg:col-span-5">
             {titulo}
           </h2>
-          <p className="mt-5 max-w-xl text-entrada text-niebla">
-            Fotos de pacientes publicadas con su autorización. Llegan apagadas: enciende las que quieras ver. Los resultados varían de una persona a otra.
+          <p className="max-w-[30rem] text-entrada text-perla lg:col-span-7">
+            Publicadas con autorización de cada paciente. Cada sobre se abre con un toque. Los resultados varían de una persona a otra.
           </p>
         </div>
-        <div className="mt-10 lg:mt-14">
-          <Negatoscopio placas={placas} />
+        <div className="mt-8 lg:mt-10">
+          <Sobres casos={casos} />
         </div>
       </Contenedor>
     </section>

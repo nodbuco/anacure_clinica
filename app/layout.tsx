@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import { PlausibleScript } from "@/components/analytics/PlausibleScript";
 import { Cabecera } from "@/components/layout/Cabecera";
 import { Pie } from "@/components/layout/Pie";
-import { LuzPuntero } from "@/components/ui/LuzPuntero";
 import { SITE } from "@/data/site";
 import { jsonLdClinica, jsonLdSeguro } from "@/lib/seo";
 import "./globals.css";
@@ -25,7 +24,7 @@ const inter = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Clínica Estética Ana Cure · Cirugía plástica en Aguachica y El Banco",
+    default: "Cirugía plástica en Aguachica · Clínica Estética Ana Cure",
     template: "%s · Clínica Estética Ana Cure",
   },
   description: SITE.descripcion,
@@ -36,15 +35,15 @@ export const metadata: Metadata = {
     locale: "es_CO",
     siteName: SITE.nombre,
     url: SITE.url,
-    images: [{ url: "/og/portada.jpg", width: 1200, height: 630, alt: "Clínica Estética Ana Cure: tu cirugía, a la luz" }],
+    images: [{ url: "/og/portada.jpg", width: 1200, height: 630, alt: "Clínica Estética Ana Cure: cirugía plástica en Aguachica" }],
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#141313",
-  colorScheme: "light",
+  themeColor: "#5E5C5C",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -56,7 +55,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Cabecera />
         <div id="contenido">{children}</div>
         <Pie />
-        <LuzPuntero />
         <PlausibleScript />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdSeguro(jsonLdClinica()) }} />
       </body>

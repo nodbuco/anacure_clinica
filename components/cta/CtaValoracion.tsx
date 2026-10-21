@@ -18,7 +18,7 @@ interface Props {
 }
 
 /** Lleva al formulario de valoración. Es el llamado principal de todo el sitio. */
-export function CtaValoracion({ ubicacion, procedimiento, variante = "oro", tamano = "md", className, children = "Agenda tu valoración", onClick }: Props) {
+export function CtaValoracion({ ubicacion, procedimiento, variante = "estampado", tamano = "lg", className, children = "Agenda tu valoración gratuita", onClick }: Props) {
   const href = procedimiento ? `/valoracion?procedimiento=${procedimiento}` : "/valoracion";
   return (
     <Link

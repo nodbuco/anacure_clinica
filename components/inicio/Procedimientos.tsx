@@ -1,83 +1,53 @@
 import Link from "next/link";
 import { Contenedor } from "@/components/ui/Contenedor";
-import { Foto } from "@/components/ui/Foto";
-import { IconoChevron } from "@/components/ui/Icons";
-import { procedimientosDe, type Procedimiento } from "@/data/procedimientos";
+import { IconoFlecha } from "@/components/ui/Icons";
+import { PROCEDIMIENTOS, ZONAS, procedimientosDe } from "@/data/procedimientos";
 import { cn } from "@/lib/cn";
 
-function Fila({ p, tono }: { p: Procedimiento; tono: "claro" | "oscuro" }) {
-  return (
-    <li>
-      <Link
-        href={`/procedimientos/${p.slug}`}
-        className={cn(
-          "group flex items-center justify-between gap-6 rounded-md py-5 transition-colors duration-200",
-          tono === "oscuro" ? "border-t border-perla/15" : "border-t border-linea",
-        )}
-      >
-        <span>
-          <span className={cn("block text-[1.2rem] font-normal tracking-[-0.015em]", tono === "oscuro" ? "text-perla" : "text-tinta")}>
-            {p.nombre}
-          </span>
-          <span className={cn("mt-1 block text-[0.95rem]", tono === "oscuro" ? "text-niebla" : "text-carbon")}>{p.corto}</span>
-        </span>
-        <IconoChevron
-          className={cn(
-            "size-5 shrink-0 transition-transform duration-300 ease-luz group-hover:translate-x-1",
-            tono === "oscuro" ? "text-oro-claro" : "text-oro-texto",
-          )}
-        />
-      </Link>
-    </li>
-  );
-}
+/* Las pestañas van escalonadas, como en un fichero: en el celular, donde las fichas se montan
+   una sobre otra, así se ven las tres. */
+const PESTANA = ["ml-0", "ml-[34%] md:ml-0", "ml-[68%] md:ml-0"];
 
-/** Mosaico de procedimientos: el cuerpo en un panel grande con la cirugía real; busto y rostro en difusores. */
+/** El fichero de procedimientos: una ficha por zona, con su pestaña, y un renglón por procedimiento. */
 export function Procedimientos() {
   return (
-    <section id="procedimientos" data-tema="claro" aria-labelledby="procedimientos-titulo" className="scroll-mt-14 bg-perla py-seccion">
-      <Contenedor>
-        <div className="max-w-3xl">
-          <h2 id="procedimientos-titulo" className="text-titulo font-light text-tinta">
-            Procedimientos.
-          </h2>
-          <p className="mt-5 max-w-xl text-entrada text-carbon">Cuerpo, busto y rostro. Todos empiezan con una valoración gratuita.</p>
-        </div>
+    <section id="procedimientos" aria-labelledby="procedimientos-titulo" className="scroll-mt-16 bg-carbon pb-seccion pt-12 lg:pt-0">
+      {/* Las pestañas son el borde superior de la sección: en el PC asoman al pie de la portada.
+          El título va en la misma fila, a la derecha, como el rótulo del fichero. */}
+      <Contenedor className="relative">
+        <h2 id="procedimientos-titulo" className="rotulo absolute right-4 top-3 text-perla sm:right-6 lg:right-8">
+          Procedimientos · {PROCEDIMIENTOS.length}
+        </h2>
 
-        {/* Celular y tableta: los paneles se apilan al bajar (cada uno se queda arriba y el siguiente
-            lo cubre); la profundidad sale de la superposición, nunca de una sombra. */}
-        <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-12 lg:gap-5">
-          <article className="encender tema-oscuro relative isolate flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-panel-lg bg-grafito text-perla max-lg:sticky max-lg:top-[4.5rem] lg:col-span-7 lg:row-span-2 lg:min-h-[44rem]">
-            <Foto
-              src="/media/clinica/cirugia.jpg"
-              alt="Cirujanos de la clínica operando bajo las lámparas del quirófano"
-              fill
-              sizes="(min-width: 64rem) 58vw, 100vw"
-              className="-z-10 object-cover object-[60%_35%]"
-            />
-            <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(20_19_19/0.96)_8%,rgb(20_19_19/0.72)_42%,rgb(20_19_19/0.05)_75%)]" />
-            <div className="p-7 sm:p-10">
-              <h3 className="text-subtitulo font-light">Cuerpo</h3>
-              <ul className="mt-5">
-                {procedimientosDe("cuerpo").map((p) => (
-                  <Fila key={p.slug} p={p} tono="oscuro" />
-                ))}
-              </ul>
-            </div>
-          </article>
-
-          {(["busto", "rostro"] as const).map((zona) => (
+        <div className="grid md:grid-cols-3 md:gap-5">
+          {ZONAS.map((z, i) => (
             <article
-              key={zona}
-              className={cn(
-                "encender difusor rounded-panel-lg bg-blanco p-7 max-lg:sticky sm:p-10 lg:col-span-5",
-                zona === "busto" ? "max-lg:top-[5.25rem]" : "max-lg:top-[6rem]",
-              )}
+              key={z.slug}
+              aria-labelledby={`zona-${z.slug}`}
+              className={cn("sombra-papel relative flex flex-col transition-transform duration-500 ease-papel md:hover:-translate-y-1", i > 0 && "-mt-5 md:mt-0")}
             >
-              <h3 className="text-subtitulo font-light text-tinta">{zona === "busto" ? "Busto" : "Rostro"}</h3>
-              <ul className="mt-5">
-                {procedimientosDe(zona).map((p) => (
-                  <Fila key={p.slug} p={p} tono="claro" />
+              <h3
+                id={`zona-${z.slug}`}
+                className={cn("papel pestana rotulo -mb-px self-start px-5 pb-2.5 pt-3 text-oro-texto", PESTANA[i])}
+              >
+                {z.nombre}
+              </h3>
+              <ul
+                className={cn(
+                  "papel flex-1 rounded-troquel px-5 pb-8 pt-2 md:pb-4",
+                  i === 0 ? "rounded-tl-none" : "md:rounded-tl-none",
+                )}
+              >
+                {procedimientosDe(z.slug).map((p, j) => (
+                  <li key={p.slug} className={cn(j > 0 && "border-t border-linea")}>
+                    <Link href={`/procedimientos/${p.slug}`} className="group flex items-start justify-between gap-4 py-4">
+                      <span>
+                        <span className="block text-ficha">{p.nombre}</span>
+                        <span className="mt-1 block text-[0.95rem] leading-snug text-carbon">{p.corto}</span>
+                      </span>
+                      <IconoFlecha className="mt-1.5 h-3.5 w-4.5 shrink-0 text-oro-texto transition-transform duration-300 ease-papel group-hover:translate-x-1" />
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </article>

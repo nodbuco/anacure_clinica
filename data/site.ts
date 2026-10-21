@@ -4,7 +4,7 @@ export const SITE = {
   nombreCorto: "Clínica Ana Cure",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://clinica.anacure.co",
   descripcion:
-    "Cirugía plástica y medicina estética en Aguachica (Cesar) y El Banco (Magdalena): quirófano propio, cirujanos plásticos y recuperación en el mismo edificio. Tu valoración es gratuita, presencial o virtual.",
+    "Cirugía plástica en Aguachica (Cesar), con valoración también en El Banco (Magdalena): quirófano propio, cirujano plástico y tu recuperación en el mismo edificio. Valoración gratuita, presencial o virtual.",
   /** WhatsApp oficial de la clínica (el de la biografía de Instagram), sin «+», listo para wa.me. */
   whatsapp: "573187019075",
   whatsappBonito: "318 701 9075",

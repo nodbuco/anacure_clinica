@@ -10,7 +10,7 @@ export type EventoAnalitica =
   | "cta_valoracion"
   | "cta_whatsapp"
   | "valoracion_enviada"
-  | "resultado_encendido"
+  | "resultado_abierto"
   | "vista_procedimiento"
   | "video_pausado";
 

@@ -23,7 +23,7 @@ export const EQUIPO: Profesional[] = [
     slug: "alan-rodriguez",
     nombre: "Dr. Alan Rodríguez",
     rol: "Cirujano plástico",
-    linea: "Alectomía, blefaroplastia y cirugía corporal en nuestras jornadas.",
+    linea: "Alectomía, blefaroplastia y cirugía corporal.",
     instagram: "https://www.instagram.com/dr_alanrodriguez",
   },
   {
@@ -37,7 +37,7 @@ export const EQUIPO: Profesional[] = [
     slug: "javier-de-la-rosa",
     nombre: "Dr. Javier de la Rosa",
     rol: "Medicina estética facial",
-    linea: "Armonización de orejas y armonización facial.",
+    linea: "Armonización de orejas.",
     instagram: "https://www.instagram.com/dr.javierdelarosa",
   },
 ];

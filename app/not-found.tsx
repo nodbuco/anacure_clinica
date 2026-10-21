@@ -3,17 +3,19 @@ import { Contenedor } from "@/components/ui/Contenedor";
 
 export default function NoEncontrada() {
   return (
-    <main data-tema="oscuro" className="tema-oscuro flex min-h-svh items-center bg-noche py-seccion text-perla">
-      <Contenedor ancho="texto" className="text-center">
-        <h1 className="text-titulo font-light">Aquí no hay nada.</h1>
-        <p className="mt-5 text-entrada text-niebla">Puede que el enlace haya cambiado. Vuelve al inicio o agenda tu valoración.</p>
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Boton href="/" variante="contorno-claro" tamano="lg">
-            Ir al inicio
-          </Boton>
-          <Boton href="/valoracion" tamano="lg">
-            Agenda tu valoración
-          </Boton>
+    <main className="flex min-h-svh items-center bg-carbon py-seccion">
+      <Contenedor ancho="texto">
+        <div className="sombra-papel">
+          <div className="papel rounded-troquel px-6 py-10 sm:px-12 sm:py-14">
+            <h1 className="text-titulo font-light">Esta página no existe</h1>
+            <p className="mt-4 text-entrada text-carbon">Puede que el enlace haya cambiado. Vuelve al inicio o agenda tu valoración.</p>
+            <div data-cta-portada className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Boton href="/valoracion">Agenda tu valoración</Boton>
+              <Boton href="/" variante="linea">
+                Ir al inicio
+              </Boton>
+            </div>
+          </div>
         </div>
       </Contenedor>
     </main>

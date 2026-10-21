@@ -11,57 +11,41 @@ import { Logo } from "@/components/ui/Logo";
 import { NAV_PRINCIPAL } from "@/data/navegacion";
 import { SITE } from "@/data/site";
 
-/** Alto de la barra (h-14). Debe coincidir con la clase del <Contenedor> de abajo. */
-const ALTO = 56;
-
-type Tema = "oscuro" | "claro";
-
 /**
- * Barra local fija. Mira qué sección pasa por debajo de su línea media (secciones con
- * data-tema) y cambia de tono: grafito sobre las oscuras, perla sobre las claras.
- * El fondo translúcido vive en una capa propia: si el desenfoque estuviera en el <header>,
- * este se volvería el marco de la hoja «fixed» del menú móvil y la encerraría en 56 px.
+ * Barra fija, como el membrete de la papelería. Sobre el video de la portada va transparente;
+ * al bajar, y en las demás páginas, es cartulina carbón. Su botón se guarda mientras se ve el
+ * llamado principal de la página (data-cta-portada) y en la propia página de valoración:
+ * en pantalla hay un solo llamado a la vez.
  */
 export function Cabecera() {
   const ruta = usePathname();
-  // El inicio abre sobre el video (oscuro); las demás páginas abren claras. Luego manda la sección de debajo.
-  const [tema, setTema] = useState<Tema>(ruta === "/" ? "oscuro" : "claro");
+  const enPortada = ruta === "/";
   const [desplazada, setDesplazada] = useState(false);
+  const [ctaPaginaVisible, setCtaPaginaVisible] = useState(true);
   // El menú guarda la ruta en la que se abrió: al navegar deja de coincidir y se cierra solo.
   const [abiertoEn, setAbiertoEn] = useState<string | null>(null);
   const abierto = abiertoEn === ruta;
   const botonMenu = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const secciones = [...document.querySelectorAll<HTMLElement>("[data-tema]")].filter((s) => !s.closest("header"));
-    let observador: IntersectionObserver | null = null;
-    const vigilar = () => {
-      observador?.disconnect();
-      const medio = Math.round(ALTO / 2);
-      observador = new IntersectionObserver(
-        (entradas) => {
-          const visible = entradas.find((e) => e.isIntersecting);
-          if (visible) setTema((visible.target as HTMLElement).dataset.tema === "claro" ? "claro" : "oscuro");
-        },
-        { rootMargin: `-${medio}px 0px -${Math.max(0, window.innerHeight - medio - 1)}px 0px` },
-      );
-      secciones.forEach((s) => observador?.observe(s));
-    };
-    vigilar();
-
     let pendiente = 0;
     const alDesplazar = () => {
       cancelAnimationFrame(pendiente);
-      pendiente = requestAnimationFrame(() => setDesplazada(window.scrollY > 8));
+      pendiente = requestAnimationFrame(() => setDesplazada(window.scrollY > 24));
     };
     alDesplazar();
     window.addEventListener("scroll", alDesplazar, { passive: true });
-    window.addEventListener("resize", vigilar);
+
+    const cta = document.querySelector("[data-cta-portada]");
+    const observador = cta ? new IntersectionObserver(([e]) => setCtaPaginaVisible(e.isIntersecting), { rootMargin: "-56px 0px 0px 0px" }) : null;
+    // Sin llamado principal en la página, el de la cabecera queda a la vista.
+    const sinCta = cta ? 0 : requestAnimationFrame(() => setCtaPaginaVisible(false));
+    if (cta) observador?.observe(cta);
     return () => {
-      observador?.disconnect();
       cancelAnimationFrame(pendiente);
+      cancelAnimationFrame(sinCta);
       window.removeEventListener("scroll", alDesplazar);
-      window.removeEventListener("resize", vigilar);
+      observador?.disconnect();
     };
   }, [ruta]);
 
@@ -86,42 +70,35 @@ export function Cabecera() {
     };
   }, [abierto]);
 
-  const temaVisible: Tema = abierto ? "oscuro" : tema;
+  const solida = !enPortada || desplazada || abierto;
+  const ctaOculto = abierto || ruta === "/valoracion" || ctaPaginaVisible;
 
   return (
-    <header
-      data-tema={temaVisible}
-      data-desplazada={desplazada || abierto || undefined}
-      className="group/cab fixed inset-x-0 top-0 z-50"
-    >
-      <div aria-hidden="true" className="cabecera-fondo absolute inset-0 -z-10 border-b backdrop-blur-xl backdrop-saturate-150" />
+    <header data-solida={solida || undefined} data-cta-oculto={ctaOculto || undefined} className="fixed inset-x-0 top-0 z-50">
+      {/* El fondo vive en su propia capa: así la hoja «fixed» del menú no queda encerrada en la barra */}
+      <div aria-hidden="true" className="cabecera-fondo absolute inset-0 -z-10 border-b border-blanco/12 bg-carbon" />
       <a
         href="#contenido"
-        className="sr-only-focusable fixed left-4 top-3 z-[60] rounded-pill bg-oro px-4 py-2 text-sm font-medium text-noche"
+        className="sr-only-focusable estampado fixed left-4 top-3 z-[60] rounded-[2px] px-4 py-2 text-sm font-semibold"
       >
         Ir al contenido
       </a>
 
-      <Contenedor className="flex h-14 items-center justify-between gap-6">
-        <Link href="/" aria-label="Clínica Estética Ana Cure, ir al inicio" className="relative block h-8 shrink-0 rounded-sm lg:h-9">
-          <Logo fondo="oscuro" decorativo className="cabecera-logo cabecera-logo-oscuro h-8 lg:h-9" />
-          <Logo fondo="claro" decorativo className="cabecera-logo cabecera-logo-claro absolute inset-0 h-8 lg:h-9" />
+      <Contenedor className="flex h-14 items-center justify-between gap-6 lg:h-16">
+        <Link href="/" aria-label="Clínica Estética Ana Cure, ir al inicio" className="block shrink-0">
+          <Logo fondo="oscuro" decorativo className="h-8 lg:h-9" />
         </Link>
 
-        <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {NAV_PRINCIPAL.map((e) => (
-            <Link
-              key={e.href}
-              href={e.href}
-              className="rounded-sm text-[0.82rem] tracking-[0.005em] text-perla/75 transition-colors duration-200 hover:text-perla group-data-[tema=claro]/cab:text-tinta/70 group-data-[tema=claro]/cab:hover:text-tinta"
-            >
+            <Link key={e.href} href={e.href} className="rotulo py-2 text-blanco/80 transition-colors duration-200 hover:text-blanco">
               {e.etiqueta}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <CtaValoracion ubicacion="cabecera" className="min-h-9 px-4 text-[0.82rem]">
+        <div className="flex items-center gap-1">
+          <CtaValoracion ubicacion="cabecera" tamano="md" className="cabecera-cta">
             <span className="sm:hidden">Agendar</span>
             <span className="hidden sm:inline">Agenda tu valoración</span>
           </CtaValoracion>
@@ -132,7 +109,7 @@ export function Cabecera() {
             aria-expanded={abierto}
             aria-controls="menu-movil"
             aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
-            className="pulsable -mr-2 inline-flex size-11 items-center justify-center rounded-pill text-perla group-data-[tema=claro]/cab:text-tinta lg:hidden"
+            className="-mr-2 inline-flex size-11 items-center justify-center text-blanco lg:hidden"
           >
             {abierto ? <IconoCerrar className="size-6" /> : <IconoMenu className="size-6" />}
           </button>
@@ -142,13 +119,13 @@ export function Cabecera() {
       <div
         id="menu-movil"
         data-abierto={abierto || undefined}
-        className="menu-hoja tema-oscuro fixed inset-x-0 bottom-0 top-14 z-40 overflow-y-auto bg-noche text-perla lg:hidden"
+        className="menu-hoja fixed inset-x-0 bottom-0 top-14 z-40 overflow-y-auto bg-carbon text-blanco lg:hidden"
       >
-        <Contenedor className="flex min-h-full flex-col pb-[max(2rem,env(safe-area-inset-bottom))] pt-6">
+        <Contenedor className="flex min-h-full flex-col pb-[max(2rem,env(safe-area-inset-bottom))] pt-4">
           <nav aria-label="Principal (celular)">
             <ul>
               {NAV_PRINCIPAL.map((e, i) => (
-                <li key={e.href} className="menu-item border-b border-humo" style={{ "--i": i } as CSSProperties}>
+                <li key={e.href} className="menu-item border-b border-blanco/15" style={{ "--i": i } as CSSProperties}>
                   <Link href={e.href} onClick={() => setAbiertoEn(null)} className="block py-4 text-subtitulo font-light">
                     {e.etiqueta}
                   </Link>
@@ -157,8 +134,8 @@ export function Cabecera() {
             </ul>
           </nav>
           <div className="menu-item mt-8 grid gap-3" style={{ "--i": NAV_PRINCIPAL.length } as CSSProperties}>
-            <CtaValoracion ubicacion="menu-movil" tamano="lg" className="w-full" onClick={() => setAbiertoEn(null)} />
-            <CtaWhatsApp ubicacion="menu-movil" variante="contorno-claro" tamano="lg" className="w-full">
+            <CtaValoracion ubicacion="menu-movil" className="w-full" onClick={() => setAbiertoEn(null)} />
+            <CtaWhatsApp ubicacion="menu-movil" className="w-full">
               Escríbenos por WhatsApp
             </CtaWhatsApp>
           </div>
@@ -166,7 +143,7 @@ export function Cabecera() {
             href={SITE.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="menu-item mt-auto inline-flex items-center gap-2 pt-10 text-sm text-niebla transition-colors hover:text-perla"
+            className="menu-item mt-auto inline-flex min-h-11 items-center gap-2 pt-10 text-[0.95rem] text-perla transition-colors hover:text-blanco"
             style={{ "--i": NAV_PRINCIPAL.length + 1 } as CSSProperties}
           >
             <IconoInstagram className="size-5" />

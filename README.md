@@ -33,13 +33,15 @@ están en `.env.example`.
 
 ## Cómo está hecho
 
-- **Dirección visual «A la luz»**: el negatoscopio (la caja de luz del cirujano) como idea de todo el sitio.
-  Tres tintas: grafito, oro del kit y blanco perla. Tokens en `app/globals.css`; sistema completo en `DESIGN.md`.
+- **Dirección visual «Papelería clínica»** (rediseño del 21 oct 2026): la clínica contada con su propia
+  papelería. Cartulina gris carbón del kit, tarjetas de algodón troqueladas, logo y botones estampados en el oro
+  del kit. Tokens en `app/globals.css`; sistema completo en `DESIGN.md`.
 - **Hero**: video del quirófano real (`public/media/hero/`, AV1 + H.264, versión vertical para el celular).
   Con `prefers-reduced-motion` o ahorro de datos se queda el póster.
-- **Movimiento**: las escenas ligadas al scroll usan GSAP (`lib/gsap.ts`); los bloques que se «encienden» al
-  entrar usan CSS de scroll, sin JavaScript. Todo tiene versión quieta.
-- **Resultados**: llegan apagados; la foto real solo se descarga cuando la persona enciende la placa.
+- **Movimiento**: la tarjeta de valoración cae y se estampa el sello al cargar; la tarjeta de controles se
+  perfora paso a paso al bajar (GSAP, `lib/gsap.ts`); las fotos se descubren y el oro brilla con CSS de scroll.
+  Todo tiene versión quieta.
+- **Resultados**: llegan en sobre cerrado; la foto real solo se descarga cuando la persona abre el sobre.
 - **Analítica**: `lib/analytics.ts` (Plausible cuando exista `NEXT_PUBLIC_PLAUSIBLE_HOST`).
 
 ## Pendiente de confirmar con Ana
@@ -49,5 +51,7 @@ están en `.env.example`.
 - Retratos de cada médico y los roles exactos de la Dra. Diana García y el Dr. Javier de la Rosa.
 - Si la clínica factura con la misma sociedad del spa (pie de página y política de datos).
 - Que el convenio con FOMAG sigue vigente en 2026 (el sitio lo menciona en el cierre y en el formulario).
-- Que hoy operan varios cirujanos plásticos (el hero dice «cirujanos plásticos»; si es solo uno, va en singular).
+- Si opera más de un cirujano plástico (hoy el sitio dice «el cirujano plástico», en singular).
+- Si el **Dr. Carlos Romero** sigue en la clínica: su nombre se lee en un gorro de `public/media/clinica/cirugia.jpg`
+  y `public/media/equipo/equipo-quirurgico.jpg`. Esas dos fotos no se usan hasta confirmarlo.
 - Dominio definitivo y correo para peticiones de datos personales.

@@ -12,19 +12,21 @@ interface Props {
   tamano?: "md" | "lg";
   className?: string;
   children?: ReactNode;
+  /** Enlace de texto, sin forma de botón: el llamado secundario junto al principal. */
+  simple?: boolean;
 }
 
-/** Abre el chat de la clínica. En grafito y oro como todo el sitio: aquí el verde de WhatsApp sobraría. */
-export function CtaWhatsApp({ ubicacion, variante = "contorno-oscuro", tamano = "md", className, children = "WhatsApp" }: Props) {
+/** Abre el chat de la clínica. En la tinta de la papelería: aquí el verde de WhatsApp sobraría. */
+export function CtaWhatsApp({ ubicacion, variante = "linea", tamano = "lg", className, children = "WhatsApp", simple }: Props) {
   return (
     <a
       href={urlWhatsApp()}
       target="_blank"
       rel="noopener noreferrer"
-      className={clasesBoton(variante, tamano, className)}
+      className={simple ? className : clasesBoton(variante, tamano, className)}
       onClick={() => track("cta_whatsapp", { ubicacion })}
     >
-      <IconoWhatsApp className="size-[1.15em]" />
+      {!simple && <IconoWhatsApp className="size-[1.15em]" />}
       {children}
     </a>
   );

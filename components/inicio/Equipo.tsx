@@ -1,55 +1,61 @@
 import { Contenedor } from "@/components/ui/Contenedor";
 import { Foto } from "@/components/ui/Foto";
+import { IconoInstagram } from "@/components/ui/Icons";
 import { EQUIPO } from "@/data/equipo";
 
-/** Las personas detrás de cada jornada. Hasta tener retratos de cada médico, dos fotos reales de grupo. */
+/**
+ * Las personas detrás de cada jornada, cada una con su tarjeta de presentación.
+ * Mientras no haya retratos de todos, una sola foto: la del Dr. Alan Rodríguez con la Dra. Ana Cure.
+ */
 export function Equipo() {
   return (
-    <section id="equipo" data-tema="claro" aria-labelledby="equipo-titulo" className="scroll-mt-14 bg-blanco py-seccion">
+    <section id="equipo" aria-labelledby="equipo-titulo" className="scroll-mt-16 bg-carbon pb-seccion">
       <Contenedor>
-        <div className="max-w-3xl">
-          <h2 id="equipo-titulo" className="text-titulo font-light text-tinta">
-            El equipo.
-          </h2>
-          <p className="mt-5 max-w-xl text-entrada text-carbon">Quienes te van a valorar, operar y acompañar.</p>
-        </div>
-
-        <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-12 lg:gap-5">
-          <figure className="encender relative aspect-[4/3] overflow-hidden rounded-panel-lg bg-perla lg:col-span-7 lg:aspect-auto lg:h-[36rem]">
-            <Foto
-              src="/media/equipo/equipo-quirurgico.jpg"
-              alt="Equipo de cirugía de la clínica en el quirófano de Aguachica"
-              fill
-              sizes="(min-width: 64rem) 58vw, 100vw"
-              className="object-cover object-[50%_40%]"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgb(20_19_19/0.7),transparent)] p-6 pt-16 text-[0.9rem] text-perla sm:p-8">
-              Equipo de cirugía, en nuestro quirófano
-            </figcaption>
+        <h2 id="equipo-titulo" className="text-titulo font-light">
+          El equipo
+        </h2>
+        <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-12 lg:gap-8">
+          <figure className="lg:col-span-4">
+            <div className="descubrir relative aspect-[4/5] overflow-hidden bg-carbon-hondo sm:aspect-[4/3] lg:aspect-[4/5]">
+              <Foto
+                src="/media/equipo/alan-rodriguez-ana-cure.jpg"
+                alt="El Dr. Alan Rodríguez, cirujano plástico, junto a la Dra. Ana Cure"
+                fill
+                sizes="(min-width: 64rem) 25rem, 100vw"
+                className="object-cover object-[50%_22%]"
+              />
+            </div>
+            <figcaption className="rotulo mt-3 text-perla">Dr. Alan Rodríguez y Dra. Ana Cure</figcaption>
           </figure>
-          <figure className="encender relative aspect-[3/4] overflow-hidden rounded-panel-lg bg-perla sm:aspect-[4/3] lg:col-span-5 lg:aspect-auto lg:h-[36rem]">
-            <Foto
-              src="/media/equipo/alan-rodriguez-ana-cure.jpg"
-              alt="El Dr. Alan Rodríguez, cirujano plástico, junto a la Dra. Ana Cure"
-              fill
-              sizes="(min-width: 64rem) 40vw, 100vw"
-              className="object-cover object-[50%_20%]"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgb(20_19_19/0.7),transparent)] p-6 pt-16 text-[0.9rem] text-perla sm:p-8">
-              Dr. Alan Rodríguez y Dra. Ana Cure
-            </figcaption>
-          </figure>
-        </div>
 
-        <ul className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
-          {EQUIPO.map((p) => (
-            <li key={p.slug} className="border-t border-linea pt-6">
-              <h3 className="text-tarjeta font-light text-tinta">{p.nombre}</h3>
-              <p className="mt-1 text-[0.9rem] font-medium text-oro-texto">{p.rol}</p>
-              <p className="mt-3 leading-relaxed text-carbon">{p.linea}</p>
-            </li>
-          ))}
-        </ul>
+          <ul className="grid content-start gap-4 sm:grid-cols-2 lg:col-span-8 lg:gap-5">
+            {EQUIPO.map((p) => (
+              <li key={p.slug} className="sombra-papel">
+                <article className="papel h-full rounded-troquel p-6 lg:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-ficha text-oro-texto">{p.nombre}</h3>
+                    {/* eslint-disable-next-line @next/next/no-img-element -- isotipo del kit en SVG, sin modificar */}
+                    <img src="/brand/isotipo-color.svg" alt="" width={213} height={213} loading="lazy" className="size-6 shrink-0" />
+                  </div>
+                  <p className="rotulo mt-2 text-carbon">{p.rol}</p>
+                  <p className="mt-4 border-t border-linea pt-4 text-[0.98rem] leading-snug">{p.linea}</p>
+                  {p.instagram && (
+                    <a
+                      href={p.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="-mb-2 -ml-1 mt-1 inline-flex min-h-11 items-center gap-2 px-1 text-[0.9rem] text-tinta underline decoration-tinta/30 underline-offset-4 hover:decoration-tinta"
+                    >
+                      <IconoInstagram className="size-4" />
+                      Instagram
+                      <span className="sr-only">de {p.nombre}</span>
+                    </a>
+                  )}
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Contenedor>
     </section>
   );

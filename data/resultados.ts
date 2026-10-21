@@ -1,14 +1,14 @@
 /**
  * Resultados reales, publicados en Instagram con autorización de las pacientes
- * (confirmado por Ana el 11 de septiembre de 2026). En la web se muestran apagados:
- * la persona decide encender cada placa. Cada imagen ya trae el antes y el después.
+ * (confirmado por Ana el 11 de septiembre de 2026). En la web llegan en sobre cerrado:
+ * la persona decide abrir cada uno. Cada imagen ya trae el antes y el después.
  */
 export interface Resultado {
   id: string;
   /** Procedimientos en cuya página aparece este caso. */
   procedimientos: string[];
   titulo: string;
-  /** Tiempo de postoperatorio u otro dato del caso. */
+  /** Tiempo de postoperatorio u otro dato del caso (vacío si no hay). */
   detalle: string;
   profesional?: string;
   imagen: { src: string; alt: string; ancho: number; alto: number };
@@ -21,7 +21,7 @@ export const RESULTADOS: Resultado[] = [
     id: "lipo-transferencia-perfil",
     procedimientos: ["liposuccion", "transferencia-glutea"],
     titulo: "Liposucción y transferencia glútea",
-    detalle: "3 meses de postoperatorio · perfil",
+    detalle: "3 meses después · perfil",
     imagen: {
       src: "/media/resultados/lipo-transferencia-perfil.jpg",
       alt: "Antes y después de perfil de una liposucción con transferencia glútea, a los tres meses",
@@ -34,7 +34,7 @@ export const RESULTADOS: Resultado[] = [
     id: "lipo-transferencia-espalda",
     procedimientos: ["liposuccion", "transferencia-glutea"],
     titulo: "Liposucción y transferencia glútea",
-    detalle: "3 meses de postoperatorio · espalda",
+    detalle: "3 meses después · espalda",
     imagen: {
       src: "/media/resultados/lipo-transferencia-espalda.jpg",
       alt: "Antes y después de espalda de una liposucción con transferencia glútea, a los tres meses",
@@ -47,7 +47,7 @@ export const RESULTADOS: Resultado[] = [
     id: "alectomia",
     procedimientos: ["alectomia"],
     titulo: "Alectomía",
-    detalle: "Antes y después",
+    detalle: "",
     profesional: "alan-rodriguez",
     imagen: {
       src: "/media/resultados/alectomia.jpg",
@@ -61,7 +61,7 @@ export const RESULTADOS: Resultado[] = [
     id: "armonizacion-orejas",
     procedimientos: ["armonizacion-de-orejas"],
     titulo: "Armonización de orejas",
-    detalle: "Antes y después, sin cirugía",
+    detalle: "Sin cirugía",
     profesional: "javier-de-la-rosa",
     imagen: {
       src: "/media/resultados/armonizacion-orejas.jpg",
@@ -75,7 +75,7 @@ export const RESULTADOS: Resultado[] = [
     id: "lipo-espalda-1-mes",
     procedimientos: ["liposuccion"],
     titulo: "Liposucción",
-    detalle: "1 mes de postoperatorio",
+    detalle: "1 mes después",
     profesional: "diana-garcia",
     imagen: {
       src: "/media/resultados/lipo-espalda-1-mes.jpg",

@@ -1,60 +1,77 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
-import { CtaValoracion } from "@/components/cta/CtaValoracion";
+import { Enlace } from "@/components/ui/Boton";
 import { Contenedor } from "@/components/ui/Contenedor";
-import { CON_MOVIMIENTO, gsap, useGSAP } from "@/lib/gsap";
+import { SITE } from "@/data/site";
+import { CON_MOVIMIENTO, gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { cn } from "@/lib/cn";
 
-const PASOS = [
-  {
-    nombre: "Valoración",
-    detalle: "Gratuita · presencial o virtual",
-    texto: "Te escuchamos, revisamos tu caso y te decimos con honestidad si el procedimiento es para ti.",
-  },
-  {
-    nombre: "Jornada",
-    detalle: "Con cirujano plástico",
-    texto: "Operamos en fechas programadas. Te damos la tuya y te acompañamos en la preparación.",
-  },
-  {
-    nombre: "Recuperación",
-    detalle: "En el mismo edificio",
-    texto: "Tu postoperatorio sigue en el spa: drenaje linfático, Ultra Z y cámara hiperbárica.",
-  },
-];
+export interface Foto {
+  src: string;
+  alt: string;
+  pie: string;
+  previa?: string;
+}
 
-/** Valoración → jornada → recuperación, unidos por una línea dorada que se dibuja al bajar. */
-export function Recorrido({ fecha }: { fecha: string | null }) {
+export interface Paso {
+  nombre: string;
+  texto: string;
+  fotos: Foto[];
+  spa?: boolean;
+}
+
+function FotoMontada({ foto, className }: { foto: Foto; className?: string }) {
+  return (
+    <figure className={cn("relative", className)}>
+      <div className="descubrir relative aspect-[4/3] overflow-hidden bg-algodon-2">
+        <Image
+          src={foto.src}
+          alt={foto.alt}
+          fill
+          sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, 90vw"
+          placeholder={foto.previa ? "blur" : "empty"}
+          blurDataURL={foto.previa}
+          className="object-cover"
+        />
+        {/* Esquineros de álbum: cuatro piezas de papel que sujetan la foto, cada una con su sombra */}
+        <span aria-hidden="true" className="esquineros absolute inset-0">
+          <span className="esquinero left-0 top-0" />
+          <span className="esquinero right-0 top-0 rotate-90" />
+          <span className="esquinero bottom-0 right-0 rotate-180" />
+          <span className="esquinero bottom-0 left-0 -rotate-90" />
+        </span>
+      </div>
+      <figcaption className="rotulo mt-2.5 text-carbon">{foto.pie}</figcaption>
+    </figure>
+  );
+}
+
+/**
+ * La tarjeta de controles: valoración → jornada → recuperación, con las fotos de cada espacio.
+ * Al bajar, la perforadora marca cada paso alcanzado (sin movimiento: todos marcados).
+ */
+export function Recorrido({ pasos }: { pasos: Paso[] }) {
   const raiz = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      const pasos = gsap.utils.toArray<HTMLElement>("[data-recorrido-paso]");
-      const alcanzar = (avance: number) =>
-        pasos.forEach((p, i) => p.toggleAttribute("data-alcanzado", avance >= i / pasos.length - 0.001));
+      const filas = gsap.utils.toArray<HTMLElement>("[data-paso]");
       const mm = gsap.matchMedia();
-      // gsap.matchMedia solo corre la función si alguna condición se cumple: «quieto» cubre el celular sin movimiento.
-      mm.add({ movimiento: CON_MOVIMIENTO, quieto: "(prefers-reduced-motion: reduce)", escritorio: "(min-width: 48rem)" }, (contexto) => {
+      // gsap.matchMedia solo corre la función si alguna condición se cumple: «quieto» cubre el caso sin movimiento.
+      mm.add({ movimiento: CON_MOVIMIENTO, quieto: "(prefers-reduced-motion: reduce)" }, (contexto) => {
         if (!contexto.conditions?.movimiento) {
-          alcanzar(1);
+          filas.forEach((f) => f.setAttribute("data-perforado", ""));
           return;
         }
-        const horizontal = contexto.conditions.escritorio;
-        gsap.fromTo(
-          "[data-linea]",
-          horizontal ? { scaleX: 0, scaleY: 1 } : { scaleY: 0, scaleX: 1 },
-          {
-            scaleX: 1,
-            scaleY: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: "[data-recorrido]",
-              start: horizontal ? "top 72%" : "top 70%",
-              end: horizontal ? "bottom 55%" : "bottom 62%",
-              scrub: 0.4,
-              onUpdate: (st) => alcanzar(st.progress),
-            },
-          },
+        filas.forEach((f) =>
+          ScrollTrigger.create({
+            trigger: f,
+            start: "top 62%",
+            onEnter: () => f.setAttribute("data-perforado", ""),
+            onLeaveBack: () => f.removeAttribute("data-perforado"),
+          }),
         );
       });
       return () => mm.revert();
@@ -63,48 +80,51 @@ export function Recorrido({ fecha }: { fecha: string | null }) {
   );
 
   return (
-    <section ref={raiz} data-tema="claro" aria-labelledby="recorrido-titulo" className="bg-perla py-seccion">
+    <section ref={raiz} id="clinica" aria-labelledby="clinica-titulo" className="scroll-mt-16 bg-carbon pb-seccion">
       <Contenedor>
-        <div className="max-w-3xl">
-          <h2 id="recorrido-titulo" className="text-titulo font-light text-tinta">
-            Así es tu proceso.
-          </h2>
-          <p className="mt-5 max-w-xl text-entrada text-carbon">
-            Trabajamos por jornadas: en fechas programadas, el cirujano plástico valora y opera en nuestra clínica.
-          </p>
-        </div>
+        <h2 id="clinica-titulo" className="max-w-[15ch] text-titulo font-light">
+          De la valoración a tu recuperación
+        </h2>
 
-        <div data-recorrido className="relative mt-14 lg:mt-20">
-          {/* Línea: horizontal desde el primer punto en escritorio, vertical en el celular */}
-          <div aria-hidden="true" className="absolute bottom-2 left-[7px] top-2 w-px bg-linea md:bottom-auto md:left-2 md:right-0 md:top-[7px] md:h-px md:w-auto">
-            <div data-linea className="absolute inset-0 origin-top bg-oro md:origin-left" />
+        <div className="sombra-papel mt-10 lg:mt-14">
+          <div className="papel rounded-troquel">
+            <div className="flex items-center gap-3 border-b border-linea px-5 py-4 sm:px-8 lg:px-10">
+              {/* eslint-disable-next-line @next/next/no-img-element -- isotipo del kit en SVG, sin modificar */}
+              <img src="/brand/isotipo-color.svg" alt="" width={213} height={213} loading="lazy" className="size-7 shrink-0" />
+              <p className="rotulo text-oro-texto">Tarjeta de controles</p>
+            </div>
+            <ol>
+              {pasos.map((p, i) => (
+                <li
+                  key={p.nombre}
+                  data-paso
+                  className={cn(
+                    "grid gap-x-8 gap-y-6 px-5 py-8 sm:px-8 lg:grid-cols-[5.5rem_minmax(0,1fr)_minmax(0,24rem)] lg:items-center lg:px-10 lg:py-10",
+                    i > 0 && "border-t border-linea",
+                  )}
+                >
+                  <div className="flex items-center gap-4 lg:self-start lg:pt-1.5">
+                    <span className="perforacion" aria-hidden="true" />
+                    <span className="tabular text-subtitulo font-light text-carbon">{i + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-subtitulo font-light">{p.nombre}</h3>
+                    <p className="mt-3 max-w-[32rem] text-entrada text-carbon">{p.texto}</p>
+                    {p.spa && (
+                      <Enlace href={SITE.urlSpa} externo className="mt-4 text-oro-texto">
+                        Conoce el spa
+                      </Enlace>
+                    )}
+                  </div>
+                  <div className={cn("grid gap-4", p.fotos.length > 1 && "grid-cols-2")}>
+                    {p.fotos.map((f) => (
+                      <FotoMontada key={f.src} foto={f} />
+                    ))}
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className="relative grid gap-12 md:grid-cols-3 md:gap-8">
-            {PASOS.map((p) => (
-              <li key={p.nombre} data-recorrido-paso className="pl-10 md:pl-0">
-                <span
-                  aria-hidden="true"
-                  className="recorrido-punto absolute left-0 mt-1 block size-[15px] rounded-full border-2 border-linea bg-perla md:relative md:mt-0"
-                />
-                <h3 className="text-tarjeta font-light text-tinta md:mt-8">{p.nombre}</h3>
-                <p className="mt-1 text-[0.85rem] font-medium tracking-[0.005em] text-oro-texto">{p.detalle}</p>
-                <p className="mt-3 max-w-xs leading-relaxed text-carbon">{p.texto}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div className="encender tema-oscuro mt-16 flex flex-col gap-8 rounded-panel-lg bg-noche p-8 text-perla sm:p-12 md:flex-row md:items-center md:justify-between lg:mt-24">
-          <div>
-            <p className="text-[0.95rem] text-niebla">Próxima jornada</p>
-            <p className="mt-2 text-subtitulo font-light first-letter:uppercase">{fecha ?? "Fechas por anunciar"}</p>
-            <p className="mt-3 max-w-md text-niebla">
-              {fecha
-                ? "Aparta tu valoración con tiempo: así llegas a la jornada con todo listo."
-                : "Aparta tu valoración y te contamos la fecha en cuanto esté confirmada."}
-            </p>
-          </div>
-          <CtaValoracion ubicacion="proxima-jornada" tamano="lg" className="self-start md:self-auto" />
         </div>
       </Contenedor>
     </section>

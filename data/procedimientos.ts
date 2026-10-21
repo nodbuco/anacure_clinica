@@ -34,11 +34,7 @@ export interface Procedimiento {
   tipo: "quirurgico" | "sin-cirugia";
   /** Profesionales que aparecen asociados en las publicaciones de la clínica. */
   equipo: string[];
-  imagen: { src: string; alt: string };
 }
-
-const QUIROFANO = { src: "/media/clinica/quirofano.jpg", alt: "Quirófano de la Clínica Estética Ana Cure en Aguachica" };
-const CIRUGIA = { src: "/media/clinica/cirugia.jpg", alt: "Cirujanos de la clínica operando bajo las lámparas del quirófano" };
 
 export const PROCEDIMIENTOS: Procedimiento[] = [
   {
@@ -60,7 +56,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Usarás prenda de compresión y seguirás con drenaje linfático en el spa, en el mismo edificio.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez", "diana-garcia"],
-    imagen: CIRUGIA,
   },
   {
     slug: "transferencia-glutea",
@@ -81,7 +76,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Las primeras semanas cuidarás la posición al sentarte y seguirás con drenaje linfático y Ultra Z en el spa.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez", "diana-garcia"],
-    imagen: QUIROFANO,
   },
   {
     slug: "aumento-mamario",
@@ -97,12 +91,11 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     paraQuien: [
       "Busto pequeño o asimétrico",
       "Pérdida de volumen después del embarazo o la lactancia",
-      "Mayor de edad y con buena salud general",
+      "Buena salud general",
     ],
     recuperacion: "Usarás un brasier postquirúrgico y evitarás esfuerzos con los brazos las primeras semanas.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez"],
-    imagen: QUIROFANO,
   },
   {
     slug: "pexia-mamaria",
@@ -123,7 +116,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Usarás un brasier postquirúrgico y cuidarás las cicatrices según las indicaciones de tu cirujano.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez"],
-    imagen: CIRUGIA,
   },
   {
     slug: "alectomia",
@@ -143,7 +135,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Es ambulatoria: vuelves a casa el mismo día y retiras los puntos en el control.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez"],
-    imagen: QUIROFANO,
   },
   {
     slug: "blefaroplastia",
@@ -164,7 +155,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Es ambulatoria. Los primeros días usarás compresas frías y gafas de sol al salir.",
     tipo: "quirurgico",
     equipo: ["alan-rodriguez"],
-    imagen: QUIROFANO,
   },
   {
     slug: "armonizacion-de-orejas",
@@ -184,7 +174,6 @@ export const PROCEDIMIENTOS: Procedimiento[] = [
     recuperacion: "Vuelves a tu rutina el mismo día, con los cuidados que te indique el médico.",
     tipo: "sin-cirugia",
     equipo: ["javier-de-la-rosa"],
-    imagen: { src: "/media/clinica/recepcion.jpg", alt: "Recepción de la Clínica Estética Ana Cure en Aguachica" },
   },
 ];
 
@@ -195,11 +184,3 @@ export function procedimientoPorSlug(slug: string): Procedimiento | undefined {
 export function procedimientosDe(zona: ZonaSlug): Procedimiento[] {
   return PROCEDIMIENTOS.filter((p) => p.zona === zona);
 }
-
-/** Lo que sigue en el spa después de la cirugía. No son páginas de la clínica: viven en el sitio del spa. */
-export const RECUPERACION = [
-  { nombre: "Acompañamiento postoperatorio", texto: "Controles y cuidados después de tu cirugía, con el mismo equipo." },
-  { nombre: "Drenaje linfático", texto: "Ayuda a bajar la inflamación en las semanas siguientes." },
-  { nombre: "Ultra Z", texto: "Tecnología que apoya la retracción de la piel tras la liposucción." },
-  { nombre: "Cámara hiperbárica", texto: "Oxígeno a presión, pensada para acompañar tu recuperación." },
-] as const;
