@@ -3,13 +3,14 @@
 Igual que el sitio del spa: un contenedor en el VPS de Nodbu (`2.25.185.60`), gestionado por Coolify
 (`https://panel.nodbu.com`). El `Dockerfile` de la raíz construye la imagen (Next.js `standalone`, ≈110 MB de RAM en uso).
 
-## Estado actual (2 oct 2026)
+## Estado actual (21 oct 2026)
 
 | | |
 |---|---|
 | URL temporal | `https://clinicaanacure.agenda.nodbu.com` (certificado de Let's Encrypt, *Noindex* activo) |
 | Recurso en Coolify | `anacure-clinica-web`, uuid `9hbyuxihyhe6r6zxv8jcpwes`, proyecto `spa_ana_cure`, entorno `production` |
 | Origen | GitHub público `nodbuco/anacure_clinica`, rama `main`, build pack **Dockerfile**, puerto **3000** |
+| Versión publicada | `b1c8a46` (rediseño «Papelería clínica», solo sede Aguachica, láminas de marcaje), desplegada el 21 oct 2026 |
 
 El subdominio cuelga del comodín `*.agenda.nodbu.com`, que ya apunta al VPS: no hubo que tocar el DNS de Hostinger.
 
