@@ -7,10 +7,11 @@ Igual que el sitio del spa: un contenedor en el VPS de Nodbu (`2.25.185.60`), ge
 
 | | |
 |---|---|
-| URL | `https://clinicaanacure.nodbu.com` desde el 27 nov 2026 (registro A en Hostinger, certificado de Let's Encrypt, *Noindex* activo). `https://clinicaanacure.agenda.nodbu.com` sigue sirviendo la misma web, también con *Noindex* |
+| URL | `https://clinicaanacure.nodbu.com` desde el 27 nov 2026 (registro A en Hostinger, certificado de Let's Encrypt, **indexable** desde ese día). `https://clinicaanacure.agenda.nodbu.com` sigue sirviendo la misma web, con *Noindex*, para que los enlaces viejos no se rompan |
+| Buscadores | Coolify: dominio nuevo *Indexable*, redirección HTTP → HTTPS *Permanent* (301). Sitemap enviado en Google Search Console (propiedad de dominio `nodbu.com`, cuenta nodbuco) y «Correcto» con 10 páginas (27 nov 2026) |
 | Recurso en Coolify | `anacure-clinica-web`, uuid `9hbyuxihyhe6r6zxv8jcpwes`, proyecto `spa_ana_cure`, entorno `production` |
 | Origen | GitHub público `nodbuco/anacure_clinica`, rama `main`, build pack **Dockerfile**, puerto **3000** |
-| Versión publicada | `7689a1c` (el código de `0cbee1d` más esta guía), desplegada el 27 nov 2026 con el dominio nuevo y con las fotos calentadas |
+| Versión publicada | `e25215a` (el código de `0cbee1d` más la guía), desplegada el 27 nov 2026 con el dominio nuevo, indexable y con las fotos calentadas |
 
 `clinicaanacure.nodbu.com` tiene su propio registro A (`→ 2.25.185.60`): bajo `nodbu.com` no hay comodín. El subdominio viejo cuelga del comodín `*.agenda.nodbu.com`.
 
