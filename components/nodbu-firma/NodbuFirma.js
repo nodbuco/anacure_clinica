@@ -1,13 +1,13 @@
 'use client';
 /*!
- * NODBU · Firma de autor para React y Next.js · v1.0.0 · https://nodbu.com
+ * NODBU · Firma de autor para React y Next.js · v2.0.0 · https://nodbu.com
  *
  *   import NodbuFirma from '@/components/nodbu-firma/NodbuFirma';
  *   <NodbuFirma />
  *
  * Se puede usar dentro de un Server Component (el pie no tiene que ser cliente).
  * El HTML del servidor ya trae el enlace a nodbu.com; en el navegador se carga
- * nodbu-firma.js y lo convierte en la firma animada.
+ * nodbu-firma.js y lo convierte en la firma con el logotipo animado.
  *
  * Escrito sin JSX a propósito: funciona igual en proyectos JavaScript y
  * TypeScript (los tipos están en NodbuFirma.d.ts), con React 18 y 19.
