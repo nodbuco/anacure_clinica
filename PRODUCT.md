@@ -32,7 +32,7 @@ Sitio web de **Clínica Estética Ana Cure**, la clínica de cirugía plástica 
 - Horario: lunes a viernes 7:30 a. m. – 6:00 p. m.; sábados 8:00 a. m. – 3:00 p. m.; domingos y festivos cerrado.
 - WhatsApp oficial de la clínica: **318 701 9075**.
 - Instagram: `@clinicaanacure` (poco activo); el tráfico real llega desde `@anacure_spa`.
-- Sitio hermano del spa: `https://anacure.agenda.nodbu.com` (temporal; dominio previsto `anacure.co`).
+- Sitio hermano del spa: `https://anacure.nodbu.com` (desde el 27 nov 2026; antes `anacure.agenda.nodbu.com`, que sigue activo).
 
 ## Capabilities and Constraints
 

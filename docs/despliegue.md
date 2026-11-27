@@ -3,24 +3,24 @@
 Igual que el sitio del spa: un contenedor en el VPS de Nodbu (`2.25.185.60`), gestionado por Coolify
 (`https://panel.nodbu.com`). El `Dockerfile` de la raíz construye la imagen (Next.js `standalone`, ≈110 MB de RAM en uso).
 
-## Estado actual (21 oct 2026)
+## Estado actual (27 nov 2026)
 
 | | |
 |---|---|
-| URL temporal | `https://clinicaanacure.agenda.nodbu.com` (certificado de Let's Encrypt, *Noindex* activo) |
+| URL | `https://clinicaanacure.nodbu.com` desde el 27 nov 2026 (registro A en Hostinger, certificado de Let's Encrypt, *Noindex* activo). `https://clinicaanacure.agenda.nodbu.com` sigue sirviendo la misma web, también con *Noindex* |
 | Recurso en Coolify | `anacure-clinica-web`, uuid `9hbyuxihyhe6r6zxv8jcpwes`, proyecto `spa_ana_cure`, entorno `production` |
 | Origen | GitHub público `nodbuco/anacure_clinica`, rama `main`, build pack **Dockerfile**, puerto **3000** |
-| Versión publicada | `0cbee1d` (firma «Desarrollado por NODBU» con el logo v4), desplegada el 26 nov 2026 y con las fotos calentadas |
+| Versión publicada | `7689a1c` (el código de `0cbee1d` más esta guía), desplegada el 27 nov 2026 con el dominio nuevo y con las fotos calentadas |
 
-El subdominio cuelga del comodín `*.agenda.nodbu.com`, que ya apunta al VPS: no hubo que tocar el DNS de Hostinger.
+`clinicaanacure.nodbu.com` tiene su propio registro A (`→ 2.25.185.60`): bajo `nodbu.com` no hay comodín. El subdominio viejo cuelga del comodín `*.agenda.nodbu.com`.
 
 Variables cargadas (en Coolify 4 nacen como *build* y *runtime* a la vez; las `NEXT_PUBLIC_*` se incrustan en el build):
 
 | Variable | Valor |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://clinicaanacure.agenda.nodbu.com` |
-| `NEXT_PUBLIC_SPA_URL` | `https://anacure.agenda.nodbu.com` (luego `https://anacure.co`) |
-| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | `clinicaanacure.agenda.nodbu.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://clinicaanacure.nodbu.com` |
+| `NEXT_PUBLIC_SPA_URL` | `https://anacure.nodbu.com` |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | `clinicaanacure.nodbu.com` |
 | `NEXT_PUBLIC_PLAUSIBLE_HOST` | sin cargar hasta activar Plausible |
 
 ## Publicar un cambio
@@ -39,7 +39,7 @@ Un recurso *Public Repository* no tiene webhook: un push a `main` **no** desplie
    conversión a AVIF.
 
    ```bash
-   npm run calentar -- https://clinicaanacure.agenda.nodbu.com
+   npm run calentar -- https://clinicaanacure.nodbu.com
    ```
 
 ## Al pasar al dominio definitivo
